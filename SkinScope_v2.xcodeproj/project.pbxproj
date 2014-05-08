@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C32C1684191A8367008E5708 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32C1683191A8367008E5708 /* Foundation.framework */; };
+		C32C1686191A8367008E5708 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32C1685191A8367008E5708 /* CoreGraphics.framework */; };
+		C32C1688191A8367008E5708 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32C1687191A8367008E5708 /* UIKit.framework */; };
+		C32C168E191A8367008E5708 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C32C168C191A8367008E5708 /* InfoPlist.strings */; };
+		C32C1690191A8367008E5708 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C168F191A8367008E5708 /* main.m */; };
+		C32C1694191A8367008E5708 /* SkinScopeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C1693191A8367008E5708 /* SkinScopeAppDelegate.m */; };
+		C32C1697191A8367008E5708 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32C1695191A8367008E5708 /* Main.storyboard */; };
+		C32C169A191A8367008E5708 /* SkinScopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C1699191A8367008E5708 /* SkinScopeViewController.m */; };
+		C32C169C191A8367008E5708 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C32C169B191A8367008E5708 /* Images.xcassets */; };
+		C32C16A3191A8367008E5708 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32C16A2191A8367008E5708 /* XCTest.framework */; };
+		C32C16A4191A8367008E5708 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32C1683191A8367008E5708 /* Foundation.framework */; };
+		C32C16A5191A8367008E5708 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32C1687191A8367008E5708 /* UIKit.framework */; };
+		C32C16AD191A8367008E5708 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C32C16AB191A8367008E5708 /* InfoPlist.strings */; };
+		C32C16AF191A8367008E5708 /* SkinScope_v2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C32C16AE191A8367008E5708 /* SkinScope_v2Tests.m */; };
+		C32C16D3191A97FD008E5708 /* Bree-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C32C16D0191A97FD008E5708 /* Bree-Bold.otf */; };
+		C32C16D4191A97FD008E5708 /* Proxima-Nova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C32C16D1191A97FD008E5708 /* Proxima-Nova-Bold.otf */; };
+		C32C16D5191A97FD008E5708 /* Proxima-Nova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C32C16D2191A97FD008E5708 /* Proxima-Nova-Regular.otf */; };
+		C32C16DA191AA6FA008E5708 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C32C16D9191AA6FA008E5708 /* background.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C32C16A6191A8367008E5708 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C32C1678191A8367008E5708 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C32C167F191A8367008E5708;
+			remoteInfo = SkinScope_v2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C32C1680191A8367008E5708 /* SkinScope_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkinScope_v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C32C1683191A8367008E5708 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C32C1685191A8367008E5708 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C32C1687191A8367008E5708 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C32C168B191A8367008E5708 /* SkinScope_v2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SkinScope_v2-Info.plist"; sourceTree = "<group>"; };
+		C32C168D191A8367008E5708 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C32C168F191A8367008E5708 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C32C1691191A8367008E5708 /* SkinScope_v2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkinScope_v2-Prefix.pch"; sourceTree = "<group>"; };
+		C32C1692191A8367008E5708 /* SkinScopeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkinScopeAppDelegate.h; sourceTree = "<group>"; };
+		C32C1693191A8367008E5708 /* SkinScopeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkinScopeAppDelegate.m; sourceTree = "<group>"; };
+		C32C1696191A8367008E5708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C32C1698191A8367008E5708 /* SkinScopeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkinScopeViewController.h; sourceTree = "<group>"; };
+		C32C1699191A8367008E5708 /* SkinScopeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkinScopeViewController.m; sourceTree = "<group>"; };
+		C32C169B191A8367008E5708 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C32C16A1191A8367008E5708 /* SkinScope_v2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkinScope_v2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C32C16A2191A8367008E5708 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C32C16AA191A8367008E5708 /* SkinScope_v2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SkinScope_v2Tests-Info.plist"; sourceTree = "<group>"; };
+		C32C16AC191A8367008E5708 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C32C16AE191A8367008E5708 /* SkinScope_v2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkinScope_v2Tests.m; sourceTree = "<group>"; };
+		C32C16D0191A97FD008E5708 /* Bree-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bree-Bold.otf"; sourceTree = "<group>"; };
+		C32C16D1191A97FD008E5708 /* Proxima-Nova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima-Nova-Bold.otf"; sourceTree = "<group>"; };
+		C32C16D2191A97FD008E5708 /* Proxima-Nova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima-Nova-Regular.otf"; sourceTree = "<group>"; };
+		C32C16D9191AA6FA008E5708 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../../Images/background.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C32C167D191A8367008E5708 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C32C1686191A8367008E5708 /* CoreGraphics.framework in Frameworks */,
+				C32C1688191A8367008E5708 /* UIKit.framework in Frameworks */,
+				C32C1684191A8367008E5708 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C32C169E191A8367008E5708 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C32C16A3191A8367008E5708 /* XCTest.framework in Frameworks */,
+				C32C16A5191A8367008E5708 /* UIKit.framework in Frameworks */,
+				C32C16A4191A8367008E5708 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C32C1677191A8367008E5708 = {
+			isa = PBXGroup;
+			children = (
+				C32C16CF191A97FD008E5708 /* Fonts */,
+				C32C16D6191AA686008E5708 /* Images */,
+				C32C1689191A8367008E5708 /* SkinScope_v2 */,
+				C32C16A8191A8367008E5708 /* SkinScope_v2Tests */,
+				C32C1682191A8367008E5708 /* Frameworks */,
+				C32C1681191A8367008E5708 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C32C1681191A8367008E5708 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C32C1680191A8367008E5708 /* SkinScope_v2.app */,
+				C32C16A1191A8367008E5708 /* SkinScope_v2Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C32C1682191A8367008E5708 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C32C1683191A8367008E5708 /* Foundation.framework */,
+				C32C1685191A8367008E5708 /* CoreGraphics.framework */,
+				C32C1687191A8367008E5708 /* UIKit.framework */,
+				C32C16A2191A8367008E5708 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C32C1689191A8367008E5708 /* SkinScope_v2 */ = {
+			isa = PBXGroup;
+			children = (
+				C32C1692191A8367008E5708 /* SkinScopeAppDelegate.h */,
+				C32C1693191A8367008E5708 /* SkinScopeAppDelegate.m */,
+				C32C1695191A8367008E5708 /* Main.storyboard */,
+				C32C1698191A8367008E5708 /* SkinScopeViewController.h */,
+				C32C1699191A8367008E5708 /* SkinScopeViewController.m */,
+				C32C169B191A8367008E5708 /* Images.xcassets */,
+				C32C168A191A8367008E5708 /* Supporting Files */,
+			);
+			path = SkinScope_v2;
+			sourceTree = "<group>";
+		};
+		C32C168A191A8367008E5708 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C32C168B191A8367008E5708 /* SkinScope_v2-Info.plist */,
+				C32C168C191A8367008E5708 /* InfoPlist.strings */,
+				C32C168F191A8367008E5708 /* main.m */,
+				C32C1691191A8367008E5708 /* SkinScope_v2-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C32C16A8191A8367008E5708 /* SkinScope_v2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C32C16AE191A8367008E5708 /* SkinScope_v2Tests.m */,
+				C32C16A9191A8367008E5708 /* Supporting Files */,
+			);
+			path = SkinScope_v2Tests;
+			sourceTree = "<group>";
+		};
+		C32C16A9191A8367008E5708 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C32C16AA191A8367008E5708 /* SkinScope_v2Tests-Info.plist */,
+				C32C16AB191A8367008E5708 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C32C16CF191A97FD008E5708 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C32C16D0191A97FD008E5708 /* Bree-Bold.otf */,
+				C32C16D1191A97FD008E5708 /* Proxima-Nova-Bold.otf */,
+				C32C16D2191A97FD008E5708 /* Proxima-Nova-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C32C16D6191AA686008E5708 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C32C16D9191AA6FA008E5708 /* background.png */,
+			);
+			name = Images;
+			path = Fonts/Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C32C167F191A8367008E5708 /* SkinScope_v2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C32C16B2191A8367008E5708 /* Build configuration list for PBXNativeTarget "SkinScope_v2" */;
+			buildPhases = (
+				C32C167C191A8367008E5708 /* Sources */,
+				C32C167D191A8367008E5708 /* Frameworks */,
+				C32C167E191A8367008E5708 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SkinScope_v2;
+			productName = SkinScope_v2;
+			productReference = C32C1680191A8367008E5708 /* SkinScope_v2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C32C16A0191A8367008E5708 /* SkinScope_v2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C32C16B5191A8367008E5708 /* Build configuration list for PBXNativeTarget "SkinScope_v2Tests" */;
+			buildPhases = (
+				C32C169D191A8367008E5708 /* Sources */,
+				C32C169E191A8367008E5708 /* Frameworks */,
+				C32C169F191A8367008E5708 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C32C16A7191A8367008E5708 /* PBXTargetDependency */,
+			);
+			name = SkinScope_v2Tests;
+			productName = SkinScope_v2Tests;
+			productReference = C32C16A1191A8367008E5708 /* SkinScope_v2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C32C1678191A8367008E5708 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SkinScope;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Carla Crandall";
+				TargetAttributes = {
+					C32C16A0191A8367008E5708 = {
+						TestTargetID = C32C167F191A8367008E5708;
+					};
+				};
+			};
+			buildConfigurationList = C32C167B191A8367008E5708 /* Build configuration list for PBXProject "SkinScope_v2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C32C1677191A8367008E5708;
+			productRefGroup = C32C1681191A8367008E5708 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C32C167F191A8367008E5708 /* SkinScope_v2 */,
+				C32C16A0191A8367008E5708 /* SkinScope_v2Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C32C167E191A8367008E5708 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C32C16D3191A97FD008E5708 /* Bree-Bold.otf in Resources */,
+				C32C169C191A8367008E5708 /* Images.xcassets in Resources */,
+				C32C16D4191A97FD008E5708 /* Proxima-Nova-Bold.otf in Resources */,
+				C32C16DA191AA6FA008E5708 /* background.png in Resources */,
+				C32C16D5191A97FD008E5708 /* Proxima-Nova-Regular.otf in Resources */,
+				C32C168E191A8367008E5708 /* InfoPlist.strings in Resources */,
+				C32C1697191A8367008E5708 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C32C169F191A8367008E5708 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C32C16AD191A8367008E5708 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C32C167C191A8367008E5708 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C32C169A191A8367008E5708 /* SkinScopeViewController.m in Sources */,
+				C32C1694191A8367008E5708 /* SkinScopeAppDelegate.m in Sources */,
+				C32C1690191A8367008E5708 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C32C169D191A8367008E5708 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C32C16AF191A8367008E5708 /* SkinScope_v2Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C32C16A7191A8367008E5708 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C32C167F191A8367008E5708 /* SkinScope_v2 */;
+			targetProxy = C32C16A6191A8367008E5708 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C32C168C191A8367008E5708 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C32C168D191A8367008E5708 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C32C1695191A8367008E5708 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C32C1696191A8367008E5708 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C32C16AB191A8367008E5708 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C32C16AC191A8367008E5708 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C32C16B0191A8367008E5708 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C32C16B1191A8367008E5708 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C32C16B3191A8367008E5708 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SkinScope_v2/SkinScope_v2-Prefix.pch";
+				INFOPLIST_FILE = "SkinScope_v2/SkinScope_v2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C32C16B4191A8367008E5708 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SkinScope_v2/SkinScope_v2-Prefix.pch";
+				INFOPLIST_FILE = "SkinScope_v2/SkinScope_v2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C32C16B6191A8367008E5708 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SkinScope_v2.app/SkinScope_v2";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SkinScope_v2/SkinScope_v2-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SkinScope_v2Tests/SkinScope_v2Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C32C16B7191A8367008E5708 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SkinScope_v2.app/SkinScope_v2";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SkinScope_v2/SkinScope_v2-Prefix.pch";
+				INFOPLIST_FILE = "SkinScope_v2Tests/SkinScope_v2Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C32C167B191A8367008E5708 /* Build configuration list for PBXProject "SkinScope_v2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C32C16B0191A8367008E5708 /* Debug */,
+				C32C16B1191A8367008E5708 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C32C16B2191A8367008E5708 /* Build configuration list for PBXNativeTarget "SkinScope_v2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C32C16B3191A8367008E5708 /* Debug */,
+				C32C16B4191A8367008E5708 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C32C16B5191A8367008E5708 /* Build configuration list for PBXNativeTarget "SkinScope_v2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C32C16B6191A8367008E5708 /* Debug */,
+				C32C16B7191A8367008E5708 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C32C1678191A8367008E5708 /* Project object */;
+}
