@@ -30,6 +30,7 @@
 		C3EC85CA191C342C009908F7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3EC85C9191C342C009908F7 /* Security.framework */; };
 		C3EC85D0191C34CF009908F7 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC85CF191C34CF009908F7 /* SSKeychain.m */; };
 		C3EC85D4191C3F72009908F7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC85D3191C3F72009908F7 /* User.m */; };
+		C3EC85D7191CA6F7009908F7 /* ProductSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC85D6191CA6F7009908F7 /* ProductSearchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		C3EC85CF191C34CF009908F7 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		C3EC85D2191C3F72009908F7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		C3EC85D3191C3F72009908F7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		C3EC85D5191CA6F7009908F7 /* ProductSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductSearchViewController.h; sourceTree = "<group>"; };
+		C3EC85D6191CA6F7009908F7 /* ProductSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductSearchViewController.m; sourceTree = "<group>"; };
 		CD57196D17A84803A2E8A8F8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E786BAB6A1444F688C139ED1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +155,8 @@
 				C32C1695191A8367008E5708 /* Main.storyboard */,
 				C32C1698191A8367008E5708 /* SkinScopeViewController.h */,
 				C32C1699191A8367008E5708 /* SkinScopeViewController.m */,
+				C3EC85D5191CA6F7009908F7 /* ProductSearchViewController.h */,
+				C3EC85D6191CA6F7009908F7 /* ProductSearchViewController.m */,
 				C32C169B191A8367008E5708 /* Images.xcassets */,
 				C32C168A191A8367008E5708 /* Supporting Files */,
 			);
@@ -345,6 +350,7 @@
 			files = (
 				C32C169A191A8367008E5708 /* SkinScopeViewController.m in Sources */,
 				C3EC85C8191C1A0D009908F7 /* Product.m in Sources */,
+				C3EC85D7191CA6F7009908F7 /* ProductSearchViewController.m in Sources */,
 				C3EC85D4191C3F72009908F7 /* User.m in Sources */,
 				C32C1694191A8367008E5708 /* SkinScopeAppDelegate.m in Sources */,
 				C32C1690191A8367008E5708 /* main.m in Sources */,

@@ -22,5 +22,6 @@
 -(void)checkAccountInfo;
 -(void)configureRestKit;
 -(IBAction)attemptLogin:(id)sender;
+-(void)pushSearchVC;
 
 @end

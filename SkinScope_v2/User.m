@@ -27,14 +27,43 @@
     return self;
 }
 
-//set username
+
+#pragma mark Singleton Methods
+
++ (id)sharedUser{
+    static User *sharedUser = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedUser = [[self alloc] init];
+    });
+    return sharedUser;
+}
+
+-(id)init{
+    if (self = [super init]) {
+        username = @"DefaultUsername";
+        password = @"DefaultPassword";
+    }
+    return self;
+}
+
+
+#pragma mark Getters and Setters
+
 -(void)setUsername:(NSString *)u_name{
     username = u_name;
 }
 
-//set password
 -(void)setPassword:(NSString *)u_pass{
     password = u_pass;
+}
+
+-(NSString *)getUsername{
+    return username;
+}
+
+-(NSString *)getPassword{
+    return password;
 }
 
 

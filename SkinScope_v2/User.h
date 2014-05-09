@@ -13,9 +13,14 @@
 @property (nonatomic,strong) NSString *username;
 @property (nonatomic,strong) NSString *password;
 
-
+//init
++(id)sharedUser;
 -(id)initWithUsername:(NSString *)u_name password:(NSString *)u_pass;
+
+//setters and getters
 -(void)setUsername:(NSString *)u_name;
 -(void)setPassword:(NSString *)u_pass;
+-(NSString *)getUsername;
+-(NSString *)getPassword;
 
 @end

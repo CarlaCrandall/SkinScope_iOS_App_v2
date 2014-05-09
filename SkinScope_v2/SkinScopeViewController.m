@@ -12,6 +12,7 @@
 #import <RestKit/RestKit.h>
 #import "SSKeychain.h"
 #import "User.h"
+#import "ProductSearchViewController.h"
 
 @interface SkinScopeViewController ()
 
@@ -30,7 +31,10 @@
     
     //setup RestKit object for api call(s)
     [self configureRestKit];
-	   
+    
+    //hide the navigation bar
+    [self.navigationController setNavigationBarHidden:YES];
+    
     //clear background allows background image to show through
     self.view.backgroundColor = [UIColor clearColor];
     
@@ -83,11 +87,6 @@
 //slide form up when the user begins editing
 //prevents fields from getting stuck under the keyboard
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    
-    //obscure password characters
-    if(textField == self.password){
-        textField.secureTextEntry = YES;
-    }
     
     //setup animation
     [UIView beginAnimations:nil context:NULL];
@@ -145,12 +144,12 @@
         NSString *username = [[accounts objectAtIndex:0] objectForKey:@"acct"];
         NSString *pass = [SSKeychain passwordForService:@"SkinScope.com" account:username];
         
-        //init user
-        //User *user = appDelegate.appUser;
+        //setup user
+        User *sharedUser = [User sharedUser];
+        [sharedUser setUsername:username];
+        [sharedUser setPassword:pass];
         
-        
-        NSLog(@"USERNAME------------------------------------%@", username);
-        NSLog(@"PASSWORD------------------------------------%@", pass);
+        [self pushSearchVC];
     }
 
 }
@@ -196,8 +195,12 @@
             //save account information to keychain
             [SSKeychain setPassword:self.password.text forService:@"SkinScope.com" account:self.email.text];
             
-            //init user
-            User *user = [[User alloc] initWithUsername:self.email.text password:self.password.text];
+            //setup user
+            User *sharedUser = [User sharedUser];
+            [sharedUser setUsername:self.email.text];
+            [sharedUser setPassword:self.password.text];
+            
+            [self pushSearchVC];
         }
         failure:^(RKObjectRequestOperation *operation, NSError *error) {
             
@@ -209,11 +212,18 @@
         }
      ];
     
-    
-    
-    
-    
 }
+
+-(void)pushSearchVC{
+    
+    //ProductSearchViewController *productSearchVC = [[ProductSearchViewController alloc] init];
+    
+    // do any setup you need for myNewVC
+    
+    [self performSegueWithIdentifier:@"pushSearchVC" sender:self];
+    //[self presentModalViewController:myNewVC animated:YES];
+}
+
 
 
 
