@@ -7,12 +7,10 @@
 //
 
 #import "SkinScopeViewController.h"
-#import "SkinScopeAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 #import "SSKeychain.h"
 #import "User.h"
-#import "ProductSearchViewController.h"
 
 @interface SkinScopeViewController ()
 
@@ -32,11 +30,19 @@
     //setup RestKit object for api call(s)
     [self configureRestKit];
     
+    //set background image
+    UIImage *background = [UIImage imageNamed: @"background.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage: background];
+    [self.view insertSubview: imageView atIndex:0];
+
     //hide the navigation bar
-    [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController.navigationBar setHidden:YES];
     
-    //clear background allows background image to show through
-    self.view.backgroundColor = [UIColor clearColor];
+    //change font of navigation bar title
+    [self.navigationController.navigationBar setTitleTextAttributes:
+      [NSDictionary dictionaryWithObjectsAndKeys:
+        [UIColor whiteColor], NSForegroundColorAttributeName,
+        [UIFont fontWithName:@"Bree-Bold" size:18.0], NSFontAttributeName, nil]];
     
     //change font of title
     [titleLabel setFont:[UIFont fontWithName:@"Bree-Bold" size:50]];
@@ -128,6 +134,7 @@
 }
 
 
+
 #pragma mark API Call Functions
 
 
@@ -143,6 +150,8 @@
         //get username & password from keychain
         NSString *username = [[accounts objectAtIndex:0] objectForKey:@"acct"];
         NSString *pass = [SSKeychain passwordForService:@"SkinScope.com" account:username];
+        
+        //[SSKeychain deletePasswordForService:@"SkinScope.com" account:username];
         
         //setup user
         User *sharedUser = [User sharedUser];
@@ -214,14 +223,12 @@
     
 }
 
+
+#pragma mark Segue
+
+//segue to the product search view controller
 -(void)pushSearchVC{
-    
-    //ProductSearchViewController *productSearchVC = [[ProductSearchViewController alloc] init];
-    
-    // do any setup you need for myNewVC
-    
     [self performSegueWithIdentifier:@"pushSearchVC" sender:self];
-    //[self presentModalViewController:myNewVC animated:YES];
 }
 
 

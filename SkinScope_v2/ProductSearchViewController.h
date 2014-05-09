@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 
 @interface ProductSearchViewController : UIViewController
+
+@property (nonatomic,strong) IBOutlet UISearchBar *mySearchBar;
+@property (nonatomic,strong) IBOutlet UIButton *scanBtn;
+@property (nonatomic,strong) IBOutlet UILabel *resultsLabel;
+@property (nonatomic,strong) IBOutlet UIBarButtonItem *filterButton;
+
+@property (nonatomic,strong) NSArray *products;
+@property RKObjectManager *objectManager;
+
+-(void)configureRestKit;
+
 
 @end
