@@ -7,6 +7,7 @@
 //
 
 #import "SkinScopeAppDelegate.h"
+#import <RestKit/RestKit.h>
 
 @implementation SkinScopeAppDelegate
 
@@ -15,7 +16,6 @@
     //set background image for app
     [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
     
-    // Override point for customization after application launch.
     return YES;
 }
 							

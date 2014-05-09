@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301C39A6457A4889A5522AC2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD57196D17A84803A2E8A8F8 /* libPods.a */; };
 		C32C1684191A8367008E5708 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32C1683191A8367008E5708 /* Foundation.framework */; };
 		C32C1686191A8367008E5708 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32C1685191A8367008E5708 /* CoreGraphics.framework */; };
 		C32C1688191A8367008E5708 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32C1687191A8367008E5708 /* UIKit.framework */; };
@@ -25,6 +26,10 @@
 		C32C16D4191A97FD008E5708 /* Proxima-Nova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C32C16D1191A97FD008E5708 /* Proxima-Nova-Bold.otf */; };
 		C32C16D5191A97FD008E5708 /* Proxima-Nova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C32C16D2191A97FD008E5708 /* Proxima-Nova-Regular.otf */; };
 		C32C16DA191AA6FA008E5708 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C32C16D9191AA6FA008E5708 /* background.png */; };
+		C3EC85C8191C1A0D009908F7 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC85C7191C1A0C009908F7 /* Product.m */; };
+		C3EC85CA191C342C009908F7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3EC85C9191C342C009908F7 /* Security.framework */; };
+		C3EC85D0191C34CF009908F7 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC85CF191C34CF009908F7 /* SSKeychain.m */; };
+		C3EC85D4191C3F72009908F7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC85D3191C3F72009908F7 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,15 @@
 		C32C16D1191A97FD008E5708 /* Proxima-Nova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima-Nova-Bold.otf"; sourceTree = "<group>"; };
 		C32C16D2191A97FD008E5708 /* Proxima-Nova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima-Nova-Regular.otf"; sourceTree = "<group>"; };
 		C32C16D9191AA6FA008E5708 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../../Images/background.png; sourceTree = "<group>"; };
+		C3EC85C6191C1A0C009908F7 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		C3EC85C7191C1A0C009908F7 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		C3EC85C9191C342C009908F7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C3EC85CE191C34CF009908F7 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		C3EC85CF191C34CF009908F7 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		C3EC85D2191C3F72009908F7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		C3EC85D3191C3F72009908F7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		CD57196D17A84803A2E8A8F8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E786BAB6A1444F688C139ED1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +82,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3EC85CA191C342C009908F7 /* Security.framework in Frameworks */,
 				C32C1686191A8367008E5708 /* CoreGraphics.framework in Frameworks */,
 				C32C1688191A8367008E5708 /* UIKit.framework in Frameworks */,
 				C32C1684191A8367008E5708 /* Foundation.framework in Frameworks */,
+				301C39A6457A4889A5522AC2 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +112,7 @@
 				C32C16A8191A8367008E5708 /* SkinScope_v2Tests */,
 				C32C1682191A8367008E5708 /* Frameworks */,
 				C32C1681191A8367008E5708 /* Products */,
+				E786BAB6A1444F688C139ED1 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,10 +128,12 @@
 		C32C1682191A8367008E5708 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3EC85C9191C342C009908F7 /* Security.framework */,
 				C32C1683191A8367008E5708 /* Foundation.framework */,
 				C32C1685191A8367008E5708 /* CoreGraphics.framework */,
 				C32C1687191A8367008E5708 /* UIKit.framework */,
 				C32C16A2191A8367008E5708 /* XCTest.framework */,
+				CD57196D17A84803A2E8A8F8 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,8 +141,14 @@
 		C32C1689191A8367008E5708 /* SkinScope_v2 */ = {
 			isa = PBXGroup;
 			children = (
+				C3EC85CE191C34CF009908F7 /* SSKeychain.h */,
+				C3EC85CF191C34CF009908F7 /* SSKeychain.m */,
 				C32C1692191A8367008E5708 /* SkinScopeAppDelegate.h */,
 				C32C1693191A8367008E5708 /* SkinScopeAppDelegate.m */,
+				C3EC85C6191C1A0C009908F7 /* Product.h */,
+				C3EC85C7191C1A0C009908F7 /* Product.m */,
+				C3EC85D2191C3F72009908F7 /* User.h */,
+				C3EC85D3191C3F72009908F7 /* User.m */,
 				C32C1695191A8367008E5708 /* Main.storyboard */,
 				C32C1698191A8367008E5708 /* SkinScopeViewController.h */,
 				C32C1699191A8367008E5708 /* SkinScopeViewController.m */,
@@ -188,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C32C16B2191A8367008E5708 /* Build configuration list for PBXNativeTarget "SkinScope_v2" */;
 			buildPhases = (
+				0F39D68AB9924F98A528153D /* Check Pods Manifest.lock */,
 				C32C167C191A8367008E5708 /* Sources */,
 				C32C167D191A8367008E5708 /* Frameworks */,
 				C32C167E191A8367008E5708 /* Resources */,
+				F83DEB25DD274675AA3E19BC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -278,14 +305,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F39D68AB9924F98A528153D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F83DEB25DD274675AA3E19BC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C32C167C191A8367008E5708 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C32C169A191A8367008E5708 /* SkinScopeViewController.m in Sources */,
+				C3EC85C8191C1A0D009908F7 /* Product.m in Sources */,
+				C3EC85D4191C3F72009908F7 /* User.m in Sources */,
 				C32C1694191A8367008E5708 /* SkinScopeAppDelegate.m in Sources */,
 				C32C1690191A8367008E5708 /* main.m in Sources */,
+				C3EC85D0191C34CF009908F7 /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +470,7 @@
 		};
 		C32C16B3191A8367008E5708 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E786BAB6A1444F688C139ED1 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -421,6 +485,7 @@
 		};
 		C32C16B4191A8367008E5708 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E786BAB6A1444F688C139ED1 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -492,6 +557,7 @@
 				C32C16B4191A8367008E5708 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C32C16B5191A8367008E5708 /* Build configuration list for PBXNativeTarget "SkinScope_v2Tests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +566,7 @@
 				C32C16B7191A8367008E5708 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

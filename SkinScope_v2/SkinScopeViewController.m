@@ -7,7 +7,11 @@
 //
 
 #import "SkinScopeViewController.h"
+#import "SkinScopeAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
+#import <RestKit/RestKit.h>
+#import "SSKeychain.h"
+#import "User.h"
 
 @interface SkinScopeViewController ()
 
@@ -15,13 +19,18 @@
 
 @implementation SkinScopeViewController
 
-@synthesize titleLabel, email, password, login, spinner;
+@synthesize titleLabel, email, password, login, spinner, objectManager;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     
+    //check to see if account info is in keychain
+    [self checkAccountInfo];
+    
+    //setup RestKit object for api call(s)
+    [self configureRestKit];
+	   
     //clear background allows background image to show through
     self.view.backgroundColor = [UIColor clearColor];
     
@@ -45,11 +54,6 @@
     
     //change font of button
     login.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:24];
-    
-    //clear out previous text when user enters field
-    email.clearsOnBeginEditing = YES;
-    password.clearsOnBeginEditing = YES;
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,6 +83,11 @@
 //slide form up when the user begins editing
 //prevents fields from getting stuck under the keyboard
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    //obscure password characters
+    if(textField == self.password){
+        textField.secureTextEntry = YES;
+    }
     
     //setup animation
     [UIView beginAnimations:nil context:NULL];
@@ -120,7 +129,48 @@
 }
 
 
-#pragma mark Custom Functions
+#pragma mark API Call Functions
+
+
+//check to see if account information has been saved to keychain
+-(void)checkAccountInfo{
+    
+    //get all accounts (if any)
+    NSArray *accounts = [SSKeychain accountsForService:@"SkinScope.com"];
+    
+    //account info exists, login automatically
+    if([accounts count] == 1){
+        
+        //get username & password from keychain
+        NSString *username = [[accounts objectAtIndex:0] objectForKey:@"acct"];
+        NSString *pass = [SSKeychain passwordForService:@"SkinScope.com" account:username];
+        
+        //init user
+        //User *user = appDelegate.appUser;
+        
+        
+        NSLog(@"USERNAME------------------------------------%@", username);
+        NSLog(@"PASSWORD------------------------------------%@", pass);
+    }
+
+}
+
+
+//setup RestKit object for api call(s)
+-(void)configureRestKit{
+    
+    //initialize AFNetworking HTTPClient
+    NSURL *baseURL = [NSURL URLWithString:@"http://skinscope.info"];
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
+    
+    //initialize RestKit
+    objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
+    
+    //create response descriptor
+    RKObjectMapping *emptyMapping = [RKObjectMapping mappingForClass:[NSObject class]];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:emptyMapping method:RKRequestMethodGET pathPattern:@"/api/users/auth" keyPath:@"" statusCodes:[NSIndexSet indexSetWithIndex:200]];
+    [objectManager addResponseDescriptor:responseDescriptor];
+}
 
 
 //attempt to login using supplied credentials
@@ -131,6 +181,36 @@
     
     //show activity indicator
     [spinner startAnimating];
+    
+    //setup header for authentication
+    [objectManager.HTTPClient setAuthorizationHeaderWithUsername:self.email.text password:self.password.text];
+    
+    
+    
+    //make the call
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/api/users/auth" parameters:nil
+        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+            
+            [spinner stopAnimating];
+            
+            //save account information to keychain
+            [SSKeychain setPassword:self.password.text forService:@"SkinScope.com" account:self.email.text];
+            
+            //init user
+            User *user = [[User alloc] initWithUsername:self.email.text password:self.password.text];
+        }
+        failure:^(RKObjectRequestOperation *operation, NSError *error) {
+            
+            [spinner stopAnimating];
+            
+            //authentication failed, show error message
+            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error with your E-Mail and Password combination. Please try again." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [errorAlert show];
+        }
+     ];
+    
+    
+    
     
     
 }
