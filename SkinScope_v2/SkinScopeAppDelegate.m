@@ -8,13 +8,24 @@
 
 #import "SkinScopeAppDelegate.h"
 #import <RestKit/RestKit.h>
+#import "Product.h"
 
 @implementation SkinScopeAppDelegate
 
+@synthesize objectManager, loginMapping, productSearchMapping, loginDescriptor, productSearchDescriptor;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //set background image for app
-    [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
+    // Initialize HTTPClient
+    NSURL *baseURL = [NSURL URLWithString:@"http://skinscope.info"];
+    AFHTTPClient* client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
+    
+    // Initialize RestKit
+    objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
+    
+    [self defineObjectMappings];
+    [self defineResponseDesciptors];
+    [self addResponseDescriptors];
     
     return YES;
 }
@@ -44,6 +55,50 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+#pragma mark RestKit / API Call Functions
+
+
+//all RestKit / API call object mappings are defined here
+-(void)defineObjectMappings{
+    
+    //object mapping for login attempt
+    loginMapping = [RKObjectMapping mappingForClass:[NSObject class]];
+    
+    //object mapping for product search
+    productSearchMapping = [RKObjectMapping mappingForClass:[Product class]];
+    [productSearchMapping addAttributeMappingsFromDictionary:@{
+                                                  @"id": @"productID",
+                                                  @"upc": @"upc",
+                                                  @"name": @"name",
+                                                  @"brand": @"brand",
+                                                  @"category": @"category",
+                                                  @"rating": @"rating"
+                                                  }];
+}
+
+//all RestKit / API call response descriptors are defined here
+-(void)defineResponseDesciptors{
+    
+    //response descriptor for login attempt
+    loginDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:loginMapping
+                                                                   method:RKRequestMethodGET
+                                                              pathPattern:@"/api/users/auth"
+                                                                  keyPath:@""
+                                                              statusCodes:[NSIndexSet indexSetWithIndex:200]];
+    
+    //response descriptor for product search
+    productSearchDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:productSearchMapping
+                                                 method:RKRequestMethodGET
+                                            pathPattern:@"/api/products"
+                                                keyPath:@""
+                                            statusCodes:[NSIndexSet indexSetWithIndex:200]];
+}
+
+-(void)addResponseDescriptors{
+    [objectManager addResponseDescriptorsFromArray:@[loginDescriptor, productSearchDescriptor]];
 }
 
 @end

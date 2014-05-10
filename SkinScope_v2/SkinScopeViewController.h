@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <RestKit/RestKit.h>
 
 @interface SkinScopeViewController : UIViewController
 
@@ -17,11 +16,9 @@
 @property (nonatomic,strong) IBOutlet UIButton *login;
 @property (nonatomic,strong) IBOutlet UIActivityIndicatorView *spinner;
 
-@property RKObjectManager *objectManager;
+-(IBAction)attemptLogin:(id)sender;
 
 -(void)checkAccountInfo;
--(void)configureRestKit;
--(IBAction)attemptLogin:(id)sender;
 -(void)pushSearchVC;
 
 @end

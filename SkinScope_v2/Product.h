@@ -10,6 +10,14 @@
 
 @interface Product : NSObject
 
+@property (nonatomic,assign) int productID;
+@property (nonatomic,strong) NSString *upc;
 @property (nonatomic,strong) NSString *name;
+@property (nonatomic,strong) NSString *brand;
+@property (nonatomic,strong) NSString *category;
+@property (nonatomic,strong) NSString *rating;
+
+-(id)initWithID:(int)p_id upc:(NSString *)p_upc name:(NSString *)p_name brand:(NSString *)p_brand category:(NSString *)p_cat rating:(NSString *)p_rating;
+
 
 @end

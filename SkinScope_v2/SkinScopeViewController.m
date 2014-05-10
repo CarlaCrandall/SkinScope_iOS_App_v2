@@ -18,7 +18,7 @@
 
 @implementation SkinScopeViewController
 
-@synthesize titleLabel, email, password, login, spinner, objectManager;
+@synthesize titleLabel, email, password, login, spinner;
 
 - (void)viewDidLoad
 {
@@ -26,9 +26,6 @@
     
     //check to see if account info is in keychain
     [self checkAccountInfo];
-    
-    //setup RestKit object for api call(s)
-    [self configureRestKit];
     
     //set background image
     UIImage *background = [UIImage imageNamed: @"background.png"];
@@ -164,23 +161,6 @@
 }
 
 
-//setup RestKit object for api call(s)
--(void)configureRestKit{
-    
-    //initialize AFNetworking HTTPClient
-    NSURL *baseURL = [NSURL URLWithString:@"http://skinscope.info"];
-    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
-    
-    //initialize RestKit
-    objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
-    
-    //create response descriptor
-    RKObjectMapping *emptyMapping = [RKObjectMapping mappingForClass:[NSObject class]];
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:emptyMapping method:RKRequestMethodGET pathPattern:@"/api/users/auth" keyPath:@"" statusCodes:[NSIndexSet indexSetWithIndex:200]];
-    [objectManager addResponseDescriptor:responseDescriptor];
-}
-
-
 //attempt to login using supplied credentials
 -(IBAction)attemptLogin:(id)sender{
     
@@ -191,14 +171,12 @@
     [spinner startAnimating];
     
     //setup header for authentication
+    RKObjectManager *objectManager = [RKObjectManager sharedManager];
     [objectManager.HTTPClient setAuthorizationHeaderWithUsername:self.email.text password:self.password.text];
-    
-    
     
     //make the call
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/api/users/auth" parameters:nil
         success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-            
             [spinner stopAnimating];
             
             //save account information to keychain
@@ -216,7 +194,7 @@
             [spinner stopAnimating];
             
             //authentication failed, show error message
-            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error with your E-Mail and Password combination. Please try again." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an issue with your email and password combination. Please try again." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
             [errorAlert show];
         }
      ];

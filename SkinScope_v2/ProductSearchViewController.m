@@ -16,7 +16,7 @@
 
 @implementation ProductSearchViewController
 
-@synthesize mySearchBar, resultsLabel, scanBtn, products, objectManager;
+@synthesize mySearchBar, resultsLabel, scanBtn, searchResults, products;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,10 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //setup RestKit object for api call(s)
-    [self configureRestKit];
-    
+            
     //set background image
     UIImage *background = [UIImage imageNamed: @"background.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage: background];
@@ -55,6 +52,7 @@
     [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor whiteColor]];
     [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setLeftViewMode:UITextFieldViewModeNever];
     [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:16]];
+    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor whiteColor]];
     
     //set scan button image
     UIImage *btnImage = [UIImage imageNamed:@"scan.png"];
@@ -62,6 +60,9 @@
     
     //change font of title
     [resultsLabel setFont:[UIFont fontWithName:@"ProximaNova-Bold" size:18]];
+    
+    //prevent table cell left indentation
+    [searchResults setSeparatorInset:UIEdgeInsetsZero];
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,12 +89,31 @@
 
 //search submitted
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    NSLog(@"User searched for %@", searchBar.text);
     
     //dismiss the keyboard
     [searchBar resignFirstResponder];
     
-    [self loadProducts];
+    //setup query parameters
+    NSDictionary *queryParams = @{@"name" : mySearchBar.text, @"brand" : mySearchBar.text};
+    
+    //make the call
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/api/products" parameters:queryParams
+        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+            
+            products = mappingResult.array; //store results
+            [searchResults reloadData]; //show the results
+        
+        }
+        failure:^(RKObjectRequestOperation *operation, NSError *error) {
+            
+            products = [NSArray array]; //empty array
+            [searchResults reloadData]; //empty the table view
+            
+            //no products found, show error message
+            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No products were found." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [errorAlert show];
+        }
+     ];
 }
 
 
@@ -103,44 +123,60 @@
 }
 
 
-#pragma mark API Call Functions
 
-//setup RestKit object for api call(s)
--(void)configureRestKit{
-    
-    //initialize AFNetworking HTTPClient
-    NSURL *baseURL = [NSURL URLWithString:@"http://skinscope.info"];
-    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
-    
-    //initialize RestKit
-    objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
-    
-    //map results to product model
-    RKObjectMapping *productMapping = [RKObjectMapping mappingForClass:[Product class]];
-    [productMapping addAttributeMappingsFromArray:@[@"name"]];
-    
-    //create response descriptor
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:productMapping method:RKRequestMethodGET pathPattern:@"/api/products" keyPath:@"" statusCodes:[NSIndexSet indexSetWithIndex:200]];
-    [objectManager addResponseDescriptor:responseDescriptor];
+#pragma mark Table View Functions
+
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
 }
 
-
-- (void)loadProducts{
-    
-    NSDictionary *queryParams = @{@"rating" : @"Good"};
-    
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/api/products"
-                                           parameters:queryParams
-                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                  products = mappingResult.array;
-                                                  NSLog(@"%@", products);
-                                              }
-                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                                  NSLog(@"What do you mean by 'there is no coffee?': %@", error);
-                                              }];
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return products.count;
 }
 
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProductCell" forIndexPath:indexPath];
+    
+    
+    
+    Product *product = [products objectAtIndex:indexPath.row];
+    
+    //set table cell image based on product rating
+    if([[product rating] isEqualToString:@"Good"]){
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"good.png"]];
+    }
+    else if([[product rating] isEqualToString:@"Average"]){
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"average.png"]];
+    }
+    else if([[product rating] isEqualToString:@"Poor"]){
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"poor.png"]];
+    }
+    else{
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"unknown.png"]];
+    }
+    
+    //set product name
+    cell.textLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:12];
+    cell.textLabel.textColor = [UIColor colorWithRed:54.0/255.0 green:54.0/255.0 blue:54.0/255.0 alpha:1];
+    cell.textLabel.text = [product name];
+    
+    //set product brand
+    cell.detailTextLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:10];
+    cell.textLabel.textColor = [UIColor colorWithRed:54.0/255.0 green:54.0/255.0 blue:54.0/255.0 alpha:1];
+    cell.detailTextLabel.text = [product brand];
+    
+    return cell;
+}
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    int selectedRow = indexPath.row;
+    NSLog(@"touch on row %d", selectedRow);
+}
 
 
 
