@@ -222,7 +222,7 @@
 //display action sheet modal with filter options
 -(IBAction)showFilterModal{
     
-    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Filter Results by Rating" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"  Filter by Rating" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
                             @"All Results",
                             @"Good",
                             @"Average",
@@ -230,7 +230,69 @@
                             @"Unknown",
                             nil];
     
+    //show action sheet
     [popup showInView:[UIApplication sharedApplication].keyWindow];
+}
+
+
+//customize action sheet title and buttons
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet{
+    
+    for (UIView *subview in actionSheet.subviews) {
+        
+        //customize buttons
+        if ([subview isKindOfClass:[UIButton class]]) {
+            
+            UIButton *button = (UIButton *)subview;
+            
+            //set color
+            [button setTitleColor:[UIColor colorWithRed:54.0/255.0 green:54.0/255.0 blue:54.0/255.0 alpha:1] forState:UIControlStateNormal];
+            
+            //set font
+            [button.titleLabel setFont:[UIFont fontWithName:@"ProximaNova-Bold" size:14]];
+            
+            //set alignment and padding
+            [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+            [button setContentEdgeInsets:UIEdgeInsetsMake(0.0, 25.0, 0.0, 0.0)];
+            [button setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 10.0, 0.0, 0.0)];
+            
+            //custom padding on cancel button since it does not have an image
+            if([button.titleLabel.text isEqualToString:@"Cancel"]){
+                [button setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)];
+            }
+                
+            //add icons to action sheet buttons
+            if([button.titleLabel.text isEqualToString:@"All Results"]){
+                [button setImage:[UIImage imageNamed:@"allResults.png"] forState:UIControlStateNormal];
+            }
+            else if([button.titleLabel.text isEqualToString:@"Good"]){
+                [button setImage:[UIImage imageNamed:@"good.png"] forState:UIControlStateNormal];
+            }
+            else if([button.titleLabel.text isEqualToString:@"Average"]){
+                [button setImage:[UIImage imageNamed:@"average.png"] forState:UIControlStateNormal];
+            }
+            else if([button.titleLabel.text isEqualToString:@"Poor"]){
+                [button setImage:[UIImage imageNamed:@"poor.png"] forState:UIControlStateNormal];
+            }
+            else if([button.titleLabel.text isEqualToString:@"Unknown"]){
+                [button setImage:[UIImage imageNamed:@"unknown.png"] forState:UIControlStateNormal];
+            }
+        }
+        //customize title
+        else if ([subview isKindOfClass:[UILabel class]]) {
+            
+            UILabel *label = (UILabel *)subview;
+            
+            //set color
+            [label setTextColor:[UIColor colorWithRed:54.0/255.0 green:54.0/255.0 blue:54.0/255.0 alpha:1]];
+            
+            //set font
+            [label setFont:[UIFont fontWithName:@"ProximaNova-Bold" size:14]];
+            
+            //set alignment
+            [label setTextAlignment:NSTextAlignmentLeft];
+        }
+    }
 }
 
 
@@ -272,7 +334,10 @@
     }
     
     //search for products
-    [self searchForProducts];
+    if(![mySearchBar.text isEqualToString:@""]){
+        [self searchForProducts];
+    }
+    
 }
 
 
