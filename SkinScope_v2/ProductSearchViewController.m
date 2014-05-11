@@ -16,7 +16,7 @@
 
 @implementation ProductSearchViewController
 
-@synthesize mySearchBar, resultsLabel, scanBtn, searchResults, products;
+@synthesize mySearchBar, resultsLabel, scanBtn, searchResults, products, filterRating;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,15 +54,27 @@
     [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:16]];
     [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor whiteColor]];
     
+    //custom clear button in search bar
+    UIImage *imgClear = [UIImage imageNamed:@"clear.png"];
+    [mySearchBar setImage:imgClear forSearchBarIcon:UISearchBarIconClear state:UIControlStateNormal];
+    
     //set scan button image
     UIImage *btnImage = [UIImage imageNamed:@"scan.png"];
     [scanBtn setImage:btnImage forState:UIControlStateNormal];
+    
+    //round the corners of scan button
+    CALayer *btnLayer = [scanBtn layer];
+    [btnLayer setMasksToBounds:YES];
+    [btnLayer setCornerRadius:3.0f];
     
     //change font of title
     [resultsLabel setFont:[UIFont fontWithName:@"ProximaNova-Bold" size:18]];
     
     //prevent table cell left indentation
     [searchResults setSeparatorInset:UIEdgeInsetsZero];
+    
+    //don't filter products by default
+    filterRating = @"";
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,40 +96,27 @@
 
 
 
-#pragma mark Search Bar Methods
+#pragma mark Search Bar Functions
 
 
-//search submitted
+//clear filter when starting a new search
+-(void) searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    filterRating = @"";
+}
+
+
+//search submitted - make api call
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
     //dismiss the keyboard
     [searchBar resignFirstResponder];
     
-    //setup query parameters
-    NSDictionary *queryParams = @{@"name" : mySearchBar.text, @"brand" : mySearchBar.text};
-    
-    //make the call
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/api/products" parameters:queryParams
-        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-            
-            products = mappingResult.array; //store results
-            [searchResults reloadData]; //show the results
-        
-        }
-        failure:^(RKObjectRequestOperation *operation, NSError *error) {
-            
-            products = [NSArray array]; //empty array
-            [searchResults reloadData]; //empty the table view
-            
-            //no products found, show error message
-            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No products were found." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-            [errorAlert show];
-        }
-     ];
+    //search
+    [self searchForProducts];
 }
 
 
-//tapping outside the form will dimiss the keyboard
+//tapping outside the search bar will dimiss the keyboard
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [mySearchBar resignFirstResponder];
 }
@@ -131,15 +130,15 @@
     return 1;
 }
 
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return products.count;
 }
 
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProductCell" forIndexPath:indexPath];
-    
-    
     
     Product *product = [products objectAtIndex:indexPath.row];
     
@@ -170,6 +169,7 @@
     return cell;
 }
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -178,6 +178,102 @@
     NSLog(@"touch on row %d", selectedRow);
 }
 
+
+
+#pragma mark Search Result Functions
+
+
+//search for products
+-(void)searchForProducts{
+    
+    //setup query parameters
+    NSDictionary *queryParams;
+    
+    //if no rating is specified, don't filter results
+    if([filterRating isEqualToString:@""]){
+        queryParams = @{@"name" : mySearchBar.text, @"brand" : mySearchBar.text};
+    }
+    //filter results based on rating
+    else{
+        queryParams = @{@"name" : mySearchBar.text, @"brand" : mySearchBar.text, @"rating" : filterRating};
+    }
+    
+    //make the call
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/api/products" parameters:queryParams
+        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  
+            products = mappingResult.array; //store results
+            [searchResults reloadData]; //show the results
+                                                  
+        }
+        failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  
+            products = [NSArray array]; //empty array
+            [searchResults reloadData]; //empty the table view
+                                                  
+            //no products found, show error message
+            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No products were found." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [errorAlert show];
+        }
+     ];
+}
+
+
+//display action sheet modal with filter options
+-(IBAction)showFilterModal{
+    
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Filter Results by Rating" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+                            @"All Results",
+                            @"Good",
+                            @"Average",
+                            @"Poor",
+                            @"Unknown",
+                            nil];
+    
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
+}
+
+
+//filter results
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    //set filter
+    switch (buttonIndex) {
+            
+        //all results
+        case 0:
+            filterRating = @"";
+            break;
+                    
+        //good
+        case 1:
+            filterRating = @"Good";
+            break;
+                    
+        //average
+        case 2:
+            filterRating = @"Average";
+            break;
+                    
+        //poor
+        case 3:
+            filterRating = @"Poor";
+            break;
+                    
+        //unknown
+        case 4:
+            filterRating = @"Unknown";
+            break;
+                    
+        //default
+        default:
+            filterRating = @"";
+            break;
+    }
+    
+    //search for products
+    [self searchForProducts];
+}
 
 
 @end

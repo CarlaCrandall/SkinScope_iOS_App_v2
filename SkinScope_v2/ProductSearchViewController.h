@@ -17,5 +17,9 @@
 @property (nonatomic,strong) IBOutlet UITableView *searchResults;
 
 @property (nonatomic,strong) NSArray *products;
+@property (nonatomic,strong) NSString *filterRating;
+
+-(IBAction)showFilterModal;
+-(void)searchForProducts;
 
 @end

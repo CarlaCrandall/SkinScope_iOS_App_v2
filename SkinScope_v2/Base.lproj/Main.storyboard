@@ -97,7 +97,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Qg-qs-Y4e">
-                                <rect key="frame" x="249" y="79" width="50" height="30"/>
+                                <rect key="frame" x="243" y="81" width="50" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -147,18 +147,22 @@
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.64705882349999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <barButtonItem width="200" style="plain" systemItem="fixedSpace" id="jhR-1F-9n3"/>
-                                    <barButtonItem image="filter.png" id="Tc0-mo-CxK"/>
+                                    <barButtonItem image="filter.png" id="Tc0-mo-CxK">
+                                        <connections>
+                                            <action selector="showFilterModal" destination="ojS-Lx-aKI" id="plq-4u-Yg6"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Results" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XQJ-Uq-gC7">
-                                <rect key="frame" x="50" y="143" width="162" height="44"/>
+                                <rect key="frame" x="49" y="143" width="162" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" id="cba-cy-8sO">
-                                <rect key="frame" x="14" y="72" width="227" height="44"/>
+                                <rect key="frame" x="16" y="72" width="227" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
