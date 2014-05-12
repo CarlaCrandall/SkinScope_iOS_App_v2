@@ -196,7 +196,7 @@
             </objects>
             <point key="canvasLocation" x="664" y="214"/>
         </scene>
-        <!--Page View Controller-->
+        <!--Page View Controller - SkinScope-->
         <scene sceneID="zlu-e4-wxA">
             <objects>
                 <viewController id="zjt-qs-Ahv" customClass="PageViewController" sceneMemberID="viewController">
@@ -205,7 +205,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xnh-kd-i4T"/>
+                    <navigationItem key="navigationItem" title="SkinScope" id="xnh-kd-i4T"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="keX-dm-bnd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -224,7 +224,7 @@
         <!--Product View Controller-->
         <scene sceneID="p6n-Or-o8t">
             <objects>
-                <viewController storyboardIdentifier="ProductOverview" id="jkW-VA-80t" customClass="ProductViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductOverview" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jkW-VA-80t" customClass="ProductViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4JN-tU-cYP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -265,22 +265,43 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p08-E1-YEh">
-                                        <rect key="frame" x="12" y="145" width="225" height="29"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="##" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p08-E1-YEh">
+                                        <rect key="frame" x="12" y="145" width="23" height="29"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Irritants" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A2J-cJ-GtE">
-                                        <rect key="frame" x="12" y="180" width="225" height="29"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0O2-Se-a5x">
+                                        <rect key="frame" x="41" y="145" width="189" height="29"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Comedogenics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MtJ-L6-VUn">
-                                        <rect key="frame" x="12" y="215" width="225" height="29"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Irritants" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FqW-hd-3ef">
+                                        <rect key="frame" x="41" y="180" width="189" height="29"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comedogenics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wYd-BL-KR5">
+                                        <rect key="frame" x="43" y="215" width="189" height="29"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="##" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A2J-cJ-GtE">
+                                        <rect key="frame" x="12" y="180" width="23" height="29"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="##" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MtJ-L6-VUn">
+                                        <rect key="frame" x="12" y="215" width="23" height="29"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -309,6 +330,9 @@
                     </view>
                     <connections>
                         <outlet property="brandName" destination="VSq-to-SqZ" id="H18-Hz-Us2"/>
+                        <outlet property="comedogenicsLabel" destination="wYd-BL-KR5" id="HZq-kY-PQR"/>
+                        <outlet property="ingredientsLabel" destination="0O2-Se-a5x" id="kh5-Kj-BsQ"/>
+                        <outlet property="irritantsLabel" destination="FqW-hd-3ef" id="vVS-2y-x6A"/>
                         <outlet property="numComedogenics" destination="MtJ-L6-VUn" id="dOO-SM-Lg7"/>
                         <outlet property="numIngredients" destination="p08-E1-YEh" id="b6R-hb-AmF"/>
                         <outlet property="numIrritants" destination="A2J-cJ-GtE" id="0fX-MY-Yu4"/>
@@ -321,11 +345,92 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbJ-Aa-kWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="709" y="1688"/>
+        </scene>
+        <!--Reviews View Controller-->
+        <scene sceneID="dGF-Yy-u32">
+            <objects>
+                <viewController storyboardIdentifier="ProductReviews" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vkj-hP-UTL" customClass="ReviewsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aoE-eZ-JGW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="ZgC-tI-vje">
+                                <rect key="frame" x="35" y="127" width="250" height="410"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vWh-zZ-G5v">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="410"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="efm-bB-GJB">
+                                                <rect key="frame" x="0.0" y="22" width="250" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="efm-bB-GJB" id="ICG-wx-tpW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="250" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="YOE-Dg-pmy">
+                                <rect key="frame" x="35" y="83" width="250" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" red="0.91764705882352937" green="0.36862745098039218" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <barButtonItem width="166" style="plain" systemItem="fixedSpace" id="ZUD-iv-xbE"/>
+                                    <barButtonItem image="compose.png" id="PmS-Fu-5bb">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem image="filter.png" id="CFp-az-6Gb">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hqg-or-Vay">
+                                <rect key="frame" x="49" y="83" width="117" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25098039220000001" green="0.76862745099999996" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="composeButton" destination="PmS-Fu-5bb" id="f25-Mv-QZx"/>
+                        <outlet property="filterButton" destination="CFp-az-6Gb" id="VTd-Ce-wNz"/>
+                        <outlet property="reviewsLabel" destination="hqg-or-Vay" id="ysE-T5-hKZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Qx-sC-ppM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="1133" y="1688"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zyG-fi-bka">
+            <objects>
+                <viewController id="EbO-0W-lJo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YBR-SV-9Zl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vKD-F9-x8Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1549" y="1688"/>
         </scene>
     </scenes>
     <resources>
         <image name="averageBkg.png" width="105" height="40"/>
+        <image name="compose.png" width="21" height="21"/>
         <image name="filter.png" width="22" height="22"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

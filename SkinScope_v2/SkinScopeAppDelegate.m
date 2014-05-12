@@ -9,10 +9,11 @@
 #import "SkinScopeAppDelegate.h"
 #import <RestKit/RestKit.h>
 #import "Product.h"
+#import "Review.h"
 
 @implementation SkinScopeAppDelegate
 
-@synthesize objectManager, loginMapping, productSearchMapping, loginDescriptor, productSearchDescriptor;
+@synthesize objectManager, loginMapping, productSearchMapping, productReviewsMapping, loginDescriptor, productSearchDescriptor, productReviewsDescriptor;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -75,8 +76,21 @@
                                                   @"name": @"name",
                                                   @"brand": @"brand",
                                                   @"category": @"category",
-                                                  @"rating": @"rating"
+                                                  @"rating": @"rating",
+                                                  @"numIngredients": @"numIngredients",
+                                                  @"numIrritants": @"numIrritants",
+                                                  @"numComedogenics": @"numComedogenics",
+                                                  @"numReviews": @"numReviews"
                                                   }];
+    
+    //object mapping for product reviews
+    productReviewsMapping = [RKObjectMapping mappingForClass:[Review class]];
+    [productReviewsMapping addAttributeMappingsFromDictionary:@{
+                                                               @"review": @"review",
+                                                               @"user.id": @"userID",
+                                                               @"user.username": @"user",
+                                                               @"user.skin_type": @"skin_type",
+                                                               }];
 }
 
 //all RestKit / API call response descriptors are defined here
@@ -95,10 +109,17 @@
                                             pathPattern:@"/api/products"
                                                 keyPath:@""
                                             statusCodes:[NSIndexSet indexSetWithIndex:200]];
+    
+    //response descriptor for product reviews
+    productReviewsDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:productReviewsMapping
+                                                                           method:RKRequestMethodGET
+                                                                      pathPattern:@"/api/products/:id/reviews"
+                                                                          keyPath:@""
+                                                                      statusCodes:[NSIndexSet indexSetWithIndex:200]];
 }
 
 -(void)addResponseDescriptors{
-    [objectManager addResponseDescriptorsFromArray:@[loginDescriptor, productSearchDescriptor]];
+    [objectManager addResponseDescriptorsFromArray:@[loginDescriptor, productSearchDescriptor, productReviewsDescriptor]];
 }
 
 @end

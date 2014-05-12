@@ -19,11 +19,13 @@
 //RestKit Object Mappings
 @property (nonatomic,strong) RKObjectMapping *loginMapping;
 @property (nonatomic,strong) RKObjectMapping *productSearchMapping;
+@property (nonatomic,strong) RKObjectMapping *productReviewsMapping;
 
 
 //RestKit Response Descriptors
 @property (nonatomic,strong) RKResponseDescriptor *loginDescriptor;
 @property (nonatomic,strong) RKResponseDescriptor *productSearchDescriptor;
+@property (nonatomic,strong) RKResponseDescriptor *productReviewsDescriptor;
 
 
 -(void)defineObjectMappings;

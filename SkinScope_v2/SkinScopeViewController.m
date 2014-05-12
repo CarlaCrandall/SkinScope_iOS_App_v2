@@ -39,7 +39,7 @@
     [self.navigationController.navigationBar setTitleTextAttributes:
       [NSDictionary dictionaryWithObjectsAndKeys:
         [UIColor whiteColor], NSForegroundColorAttributeName,
-        [UIFont fontWithName:@"Bree-Bold" size:18.0], NSFontAttributeName, nil]];
+        [UIFont fontWithName:@"Bree-Bold" size:20.0], NSFontAttributeName, nil]];
     
     //change font of title
     [titleLabel setFont:[UIFont fontWithName:@"Bree-Bold" size:50]];
@@ -203,6 +203,7 @@
 
 
 #pragma mark Segue
+
 
 //segue to the product search view controller
 -(void)pushSearchVC{

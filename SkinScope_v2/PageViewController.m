@@ -8,6 +8,7 @@
 
 #import "PageViewController.h"
 #import "ProductViewController.h"
+#import "ReviewsViewController.h"
 
 @interface PageViewController ()
 
@@ -15,7 +16,7 @@
 
 @implementation PageViewController
 
-@synthesize myPageViewController, pageTitles, product;
+@synthesize myPageViewController, pageTitles, pageIDs, product;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,8 +36,9 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage: background];
     [self.view insertSubview: imageView atIndex:0];
     
-    //set page titles for child view controllers
+    //set page titles and IDs for child view controllers
     pageTitles = @[@"Product Overview", @"Product Reviews", @"Product Ingredients"];
+    pageIDs = @[@"ProductOverview", @"ProductReviews"];
     
     //create page view controller
     myPageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
@@ -44,7 +46,6 @@
     
     //setup first child view controller
     ProductViewController *startingViewController = [self viewControllerAtIndex:0];
-    [startingViewController setProduct:product];
     NSArray *viewControllers = @[startingViewController];
     [myPageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
@@ -60,65 +61,110 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 
 #pragma mark - Page View Controller Data Source
 
+
+//get view previous view controller
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
+    //get current page/index
     NSUInteger index = ((ProductViewController*) viewController).pageIndex;
     
+    //if currently on first page, there is no previous page
     if ((index == 0) || (index == NSNotFound)) {
         return nil;
     }
     
+    //get previous page
     index--;
+    
+    //return previous view controller
     return [self viewControllerAtIndex:index];
 }
 
+
+//get next view controller
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
+    //get current page/index
     NSUInteger index = ((ProductViewController*) viewController).pageIndex;
     
     if (index == NSNotFound) {
         return nil;
     }
     
+    //get next page/index
     index++;
+    
+    //if currently on last page, there is no next page
     if (index == [self.pageTitles count]) {
         return nil;
     }
+    
+    //return next view controller
     return [self viewControllerAtIndex:index];
 }
 
-- (ProductViewController *)viewControllerAtIndex:(NSUInteger)index
+
+//create next view controller
+- (UIViewController *)viewControllerAtIndex:(NSUInteger)index
 {
     if (([self.pageTitles count] == 0) || (index >= [self.pageTitles count])) {
         return nil;
     }
     
-    // Create a new view controller and pass suitable data.
-    ProductViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductOverview"];
-    pageContentViewController.pageIndex = index;
+    //if first page, create the product overview view controller
+    if(index == 0){
+        
+        //create view controller
+        ProductViewController *productViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductOverview"];
+        
+        //pass data
+        productViewController.pageIndex = index;
+        productViewController.product = product;
+        
+        return productViewController;
+    }
+    //if second page, create the product reviews view controller
+    else if(index == 1){
+        
+        //create view controller
+        ReviewsViewController *reviewsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductReviews"];
+        
+        //pass data
+        reviewsViewController.pageIndex = index;
+        reviewsViewController.product = product;
+        
+        return reviewsViewController;
+    }
+    //if third page, create the product ingredients view controller
+    else if(index == 2){
+        
+        //create view controller
+        ProductViewController *productViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductOverview"];
+        
+        //pass data
+        productViewController.pageIndex = index;
+        productViewController.product = product;
+        
+        return productViewController;
+    }
     
-    return pageContentViewController;
+    return nil;
 }
+
+
+
+#pragma mark Page Indicator Functions
+
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
 {
     return [self.pageTitles count];
 }
+
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
 {

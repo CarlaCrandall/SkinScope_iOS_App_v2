@@ -14,6 +14,7 @@
 
 @property (nonatomic,strong) UIPageViewController *myPageViewController;
 @property (nonatomic,strong) NSArray *pageTitles;
+@property (nonatomic,strong) NSArray *pageIDs;
 @property (nonatomic,strong) Product *product;
 
 @end

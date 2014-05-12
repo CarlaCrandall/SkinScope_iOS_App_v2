@@ -36,6 +36,10 @@
 		C32C16DA191AA6FA008E5708 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C32C16D9191AA6FA008E5708 /* background.png */; };
 		C37EB54219213E4D0026577E /* unknownBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = C37EB54019213E4D0026577E /* unknownBkg.png */; };
 		C37EB54319213E4D0026577E /* unknownBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C37EB54119213E4D0026577E /* unknownBkg@2x.png */; };
+		C37EB54A19215DCF0026577E /* compose.png in Resources */ = {isa = PBXBuildFile; fileRef = C37EB54819215DCF0026577E /* compose.png */; };
+		C37EB54B19215DCF0026577E /* compose@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C37EB54919215DCF0026577E /* compose@2x.png */; };
+		C37EB54E19215F230026577E /* ReviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C37EB54D19215F230026577E /* ReviewsViewController.m */; };
+		C37EB55119216F890026577E /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = C37EB55019216F890026577E /* Review.m */; };
 		C3AAC438191D44480033B82D /* average.png in Resources */ = {isa = PBXBuildFile; fileRef = C3AAC430191D44480033B82D /* average.png */; };
 		C3AAC43A191D44480033B82D /* good.png in Resources */ = {isa = PBXBuildFile; fileRef = C3AAC432191D44480033B82D /* good.png */; };
 		C3AAC43C191D44480033B82D /* poor.png in Resources */ = {isa = PBXBuildFile; fileRef = C3AAC434191D44480033B82D /* poor.png */; };
@@ -106,6 +110,12 @@
 		C32C16D9191AA6FA008E5708 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Images/background.png; sourceTree = SOURCE_ROOT; };
 		C37EB54019213E4D0026577E /* unknownBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unknownBkg.png; path = Images/unknownBkg.png; sourceTree = SOURCE_ROOT; };
 		C37EB54119213E4D0026577E /* unknownBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unknownBkg@2x.png"; path = "Images/unknownBkg@2x.png"; sourceTree = SOURCE_ROOT; };
+		C37EB54819215DCF0026577E /* compose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compose.png; path = Images/compose.png; sourceTree = SOURCE_ROOT; };
+		C37EB54919215DCF0026577E /* compose@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compose@2x.png"; path = "Images/compose@2x.png"; sourceTree = SOURCE_ROOT; };
+		C37EB54C19215F230026577E /* ReviewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewsViewController.h; path = SkinScope_v2/ReviewsViewController.h; sourceTree = SOURCE_ROOT; };
+		C37EB54D19215F230026577E /* ReviewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewsViewController.m; path = SkinScope_v2/ReviewsViewController.m; sourceTree = SOURCE_ROOT; };
+		C37EB54F19216F890026577E /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
+		C37EB55019216F890026577E /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
 		C3AAC430191D44480033B82D /* average.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = average.png; path = Images/average.png; sourceTree = SOURCE_ROOT; };
 		C3AAC432191D44480033B82D /* good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = good.png; path = Images/good.png; sourceTree = SOURCE_ROOT; };
 		C3AAC434191D44480033B82D /* poor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = poor.png; path = Images/poor.png; sourceTree = SOURCE_ROOT; };
@@ -178,6 +188,8 @@
 				C3EC85C7191C1A0C009908F7 /* Product.m */,
 				C3EC85D2191C3F72009908F7 /* User.h */,
 				C3EC85D3191C3F72009908F7 /* User.m */,
+				C37EB54F19216F890026577E /* Review.h */,
+				C37EB55019216F890026577E /* Review.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -189,10 +201,12 @@
 				C32C1699191A8367008E5708 /* SkinScopeViewController.m */,
 				C3EC85D5191CA6F7009908F7 /* ProductSearchViewController.h */,
 				C3EC85D6191CA6F7009908F7 /* ProductSearchViewController.m */,
-				C31C023C1920819100F8A020 /* ProductViewController.h */,
-				C31C023D1920819100F8A020 /* ProductViewController.m */,
 				C31C025119209DA900F8A020 /* PageViewController.h */,
 				C31C025219209DA900F8A020 /* PageViewController.m */,
+				C31C023C1920819100F8A020 /* ProductViewController.h */,
+				C31C023D1920819100F8A020 /* ProductViewController.m */,
+				C37EB54C19215F230026577E /* ReviewsViewController.h */,
+				C37EB54D19215F230026577E /* ReviewsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -289,6 +303,8 @@
 		C32C16D6191AA686008E5708 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C37EB54819215DCF0026577E /* compose.png */,
+				C37EB54919215DCF0026577E /* compose@2x.png */,
 				C37EB54019213E4D0026577E /* unknownBkg.png */,
 				C37EB54119213E4D0026577E /* unknownBkg@2x.png */,
 				C31C023F1920863C00F8A020 /* averageBkg.png */,
@@ -399,6 +415,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C37EB54A19215DCF0026577E /* compose.png in Resources */,
 				C37EB54219213E4D0026577E /* unknownBkg.png in Resources */,
 				C32C16D3191A97FD008E5708 /* Bree-Bold.otf in Resources */,
 				C3AAC443191D4A290033B82D /* filter@2x.png in Resources */,
@@ -423,6 +440,7 @@
 				C3AAC43E191D44480033B82D /* scan.png in Resources */,
 				C32C168E191A8367008E5708 /* InfoPlist.strings in Resources */,
 				C3E0746A191F00490063C782 /* allResults@2x.png in Resources */,
+				C37EB54B19215DCF0026577E /* compose@2x.png in Resources */,
 				C3E07466191EFF690063C782 /* clear@2x.png in Resources */,
 				C32C1697191A8367008E5708 /* Main.storyboard in Resources */,
 				C3AAC43C191D44480033B82D /* poor.png in Resources */,
@@ -483,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C32C169A191A8367008E5708 /* SkinScopeViewController.m in Sources */,
+				C37EB55119216F890026577E /* Review.m in Sources */,
 				C3EC85C8191C1A0D009908F7 /* Product.m in Sources */,
 				C31C025319209DA900F8A020 /* PageViewController.m in Sources */,
 				C31C023E1920819100F8A020 /* ProductViewController.m in Sources */,
@@ -490,6 +509,7 @@
 				C3EC85D4191C3F72009908F7 /* User.m in Sources */,
 				C32C1694191A8367008E5708 /* SkinScopeAppDelegate.m in Sources */,
 				C32C1690191A8367008E5708 /* main.m in Sources */,
+				C37EB54E19215F230026577E /* ReviewsViewController.m in Sources */,
 				C3EC85D0191C34CF009908F7 /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

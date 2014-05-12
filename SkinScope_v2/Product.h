@@ -16,6 +16,10 @@
 @property (nonatomic,strong) NSString *brand;
 @property (nonatomic,strong) NSString *category;
 @property (nonatomic,strong) NSString *rating;
+@property (nonatomic,assign) int numIngredients;
+@property (nonatomic,assign) int numIrritants;
+@property (nonatomic,assign) int numComedogenics;
+@property (nonatomic,assign) int numReviews;
 
 -(id)initWithID:(int)p_id upc:(NSString *)p_upc name:(NSString *)p_name brand:(NSString *)p_brand category:(NSString *)p_cat rating:(NSString *)p_rating;
 

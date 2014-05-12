@@ -18,10 +18,13 @@
 @property (nonatomic,strong) IBOutlet UILabel *ratingLabel;
 @property (nonatomic,strong) IBOutlet UIImageView *ratingBkg;
 @property (nonatomic,strong) IBOutlet UILabel *numIngredients;
+@property (nonatomic,strong) IBOutlet UILabel *ingredientsLabel;
 @property (nonatomic,strong) IBOutlet UILabel *numIrritants;
+@property (nonatomic,strong) IBOutlet UILabel *irritantsLabel;
 @property (nonatomic,strong) IBOutlet UILabel *numComedogenics;
+@property (nonatomic,strong) IBOutlet UILabel *comedogenicsLabel;
 
-@property NSUInteger pageIndex;
+@property (nonatomic,assign) int pageIndex;
 @property (nonatomic,strong) Product *product;
 
 @end

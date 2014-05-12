@@ -33,7 +33,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-            
+    
+    //set back button text and color for navigation controller
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
     //set background image
     UIImage *background = [UIImage imageNamed: @"background.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage: background];
@@ -363,10 +367,10 @@
     if ([[segue identifier] isEqualToString:@"pushProductVC"]) {
         
         // Get destination view
-        ProductViewController *pageViewController = [segue destinationViewController];
+        ProductViewController *productViewController = [segue destinationViewController];
         
         // Pass the product to destination view
-        [pageViewController setProduct:product];
+        [productViewController setProduct:product];
     }
 }
 

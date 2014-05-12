@@ -15,7 +15,7 @@
 
 @implementation ProductViewController
 
-@synthesize overviewLabel, productName, brandName, rating, ratingLabel, ratingBkg, numIngredients, numIrritants, numComedogenics, product;
+@synthesize overviewLabel, productName, brandName, rating, ratingLabel, ratingBkg, numIngredients, ingredientsLabel, numIrritants, irritantsLabel, numComedogenics, comedogenicsLabel, product;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,15 +41,19 @@
     [rating setFont:[UIFont fontWithName:@"ProximaNova-Bold" size:16]];
     [ratingLabel setFont:[UIFont fontWithName:@"ProximaNova-Bold" size:12]];
     [numIngredients setFont:[UIFont fontWithName:@"ProximaNova-Bold" size:16]];
+    [ingredientsLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:16]];
     [numIrritants setFont:[UIFont fontWithName:@"ProximaNova-Bold" size:16]];
+    [irritantsLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:16]];
     [numComedogenics setFont:[UIFont fontWithName:@"ProximaNova-Bold" size:16]];
-    
-    
+    [comedogenicsLabel setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:16]];
     
     //set text of labels
     productName.text = product.name;
     brandName.text = product.brand;
     rating.text = [product.rating uppercaseString];
+    numIngredients.text = [NSString stringWithFormat:@"%i", product.numIngredients];
+    numIrritants.text = [NSString stringWithFormat:@"%i", product.numIrritants];
+    numComedogenics.text = [NSString stringWithFormat:@"%i", product.numComedogenics];
     
     //set rating image bkg
     if([product.rating isEqualToString:@"Good"]){
@@ -71,6 +75,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation
