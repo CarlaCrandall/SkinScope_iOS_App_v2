@@ -9,6 +9,8 @@
 #import "ProductSearchViewController.h"
 #import <RestKit/RestKit.h>
 #import "Product.h"
+#import "ProductViewController.h"
+
 
 @interface ProductSearchViewController ()
 
@@ -16,7 +18,7 @@
 
 @implementation ProductSearchViewController
 
-@synthesize mySearchBar, resultsLabel, scanBtn, searchResults, products, filterRating;
+@synthesize mySearchBar, resultsLabel, scanBtn, searchResults, products, product, filterRating;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,7 +51,6 @@
     [self.navigationItem setHidesBackButton:YES animated:YES];
     
     //change appearance of search bar
-    [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor whiteColor]];
     [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setLeftViewMode:UITextFieldViewModeNever];
     [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setFont:[UIFont fontWithName:@"ProximaNova-Regular" size:16]];
     [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor whiteColor]];
@@ -99,8 +100,9 @@
 #pragma mark Search Bar Functions
 
 
-//clear filter when starting a new search
+//clear filter and placeholder text when starting a new search
 -(void) searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    mySearchBar.text = @"";
     filterRating = @"";
 }
 
@@ -140,16 +142,16 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProductCell" forIndexPath:indexPath];
     
-    Product *product = [products objectAtIndex:indexPath.row];
+    Product *rowProduct = [products objectAtIndex:indexPath.row];
     
     //set table cell image based on product rating
-    if([[product rating] isEqualToString:@"Good"]){
+    if([[rowProduct rating] isEqualToString:@"Good"]){
         cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"good.png"]];
     }
-    else if([[product rating] isEqualToString:@"Average"]){
+    else if([[rowProduct rating] isEqualToString:@"Average"]){
         cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"average.png"]];
     }
-    else if([[product rating] isEqualToString:@"Poor"]){
+    else if([[rowProduct rating] isEqualToString:@"Poor"]){
         cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"poor.png"]];
     }
     else{
@@ -159,12 +161,12 @@
     //set product name
     cell.textLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:12];
     cell.textLabel.textColor = [UIColor colorWithRed:54.0/255.0 green:54.0/255.0 blue:54.0/255.0 alpha:1];
-    cell.textLabel.text = [product name];
+    cell.textLabel.text = [rowProduct name];
     
     //set product brand
     cell.detailTextLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:10];
     cell.textLabel.textColor = [UIColor colorWithRed:54.0/255.0 green:54.0/255.0 blue:54.0/255.0 alpha:1];
-    cell.detailTextLabel.text = [product brand];
+    cell.detailTextLabel.text = [rowProduct brand];
     
     return cell;
 }
@@ -174,8 +176,12 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    int selectedRow = indexPath.row;
-    NSLog(@"touch on row %d", selectedRow);
+    // get product
+    product = [products objectAtIndex:indexPath.row];
+    
+    
+    
+    [self pushProductVC];
 }
 
 
@@ -338,6 +344,30 @@
         [self searchForProducts];
     }
     
+}
+
+
+
+#pragma mark Segue
+
+
+//segue to the product search view controller
+-(void)pushProductVC{
+    [self performSegueWithIdentifier:@"pushProductVC" sender:self];
+}
+
+
+//pass product to next view controller
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"pushProductVC"]) {
+        
+        // Get destination view
+        ProductViewController *pageViewController = [segue destinationViewController];
+        
+        // Pass the product to destination view
+        [pageViewController setProduct:product];
+    }
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Product.h"
 
 @interface ProductSearchViewController : UIViewController
 
@@ -17,6 +18,7 @@
 @property (nonatomic,strong) IBOutlet UITableView *searchResults;
 
 @property (nonatomic,strong) NSArray *products;
+@property (nonatomic,strong) Product *product;
 @property (nonatomic,strong) NSString *filterRating;
 
 -(IBAction)showFilterModal;

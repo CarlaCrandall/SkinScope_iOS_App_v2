@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		301C39A6457A4889A5522AC2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD57196D17A84803A2E8A8F8 /* libPods.a */; };
+		C31C023E1920819100F8A020 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C31C023D1920819100F8A020 /* ProductViewController.m */; };
+		C31C02451920863C00F8A020 /* averageBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = C31C023F1920863C00F8A020 /* averageBkg.png */; };
+		C31C02461920863C00F8A020 /* averageBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31C02401920863C00F8A020 /* averageBkg@2x.png */; };
+		C31C02471920863C00F8A020 /* goodBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = C31C02411920863C00F8A020 /* goodBkg.png */; };
+		C31C02481920863C00F8A020 /* goodBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31C02421920863C00F8A020 /* goodBkg@2x.png */; };
+		C31C02491920863C00F8A020 /* poorBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = C31C02431920863C00F8A020 /* poorBkg.png */; };
+		C31C024A1920863C00F8A020 /* poorBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31C02441920863C00F8A020 /* poorBkg@2x.png */; };
+		C31C025319209DA900F8A020 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C31C025219209DA900F8A020 /* PageViewController.m */; };
 		C32C1684191A8367008E5708 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32C1683191A8367008E5708 /* Foundation.framework */; };
 		C32C1686191A8367008E5708 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32C1685191A8367008E5708 /* CoreGraphics.framework */; };
 		C32C1688191A8367008E5708 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32C1687191A8367008E5708 /* UIKit.framework */; };
@@ -26,6 +34,8 @@
 		C32C16D4191A97FD008E5708 /* Proxima-Nova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C32C16D1191A97FD008E5708 /* Proxima-Nova-Bold.otf */; };
 		C32C16D5191A97FD008E5708 /* Proxima-Nova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C32C16D2191A97FD008E5708 /* Proxima-Nova-Regular.otf */; };
 		C32C16DA191AA6FA008E5708 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C32C16D9191AA6FA008E5708 /* background.png */; };
+		C37EB54219213E4D0026577E /* unknownBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = C37EB54019213E4D0026577E /* unknownBkg.png */; };
+		C37EB54319213E4D0026577E /* unknownBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C37EB54119213E4D0026577E /* unknownBkg@2x.png */; };
 		C3AAC438191D44480033B82D /* average.png in Resources */ = {isa = PBXBuildFile; fileRef = C3AAC430191D44480033B82D /* average.png */; };
 		C3AAC43A191D44480033B82D /* good.png in Resources */ = {isa = PBXBuildFile; fileRef = C3AAC432191D44480033B82D /* good.png */; };
 		C3AAC43C191D44480033B82D /* poor.png in Resources */ = {isa = PBXBuildFile; fileRef = C3AAC434191D44480033B82D /* poor.png */; };
@@ -61,6 +71,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C31C023C1920819100F8A020 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewController.h; sourceTree = "<group>"; };
+		C31C023D1920819100F8A020 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
+		C31C023F1920863C00F8A020 /* averageBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = averageBkg.png; path = Images/averageBkg.png; sourceTree = SOURCE_ROOT; };
+		C31C02401920863C00F8A020 /* averageBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "averageBkg@2x.png"; path = "Images/averageBkg@2x.png"; sourceTree = SOURCE_ROOT; };
+		C31C02411920863C00F8A020 /* goodBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = goodBkg.png; path = Images/goodBkg.png; sourceTree = SOURCE_ROOT; };
+		C31C02421920863C00F8A020 /* goodBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "goodBkg@2x.png"; path = "Images/goodBkg@2x.png"; sourceTree = SOURCE_ROOT; };
+		C31C02431920863C00F8A020 /* poorBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = poorBkg.png; path = Images/poorBkg.png; sourceTree = SOURCE_ROOT; };
+		C31C02441920863C00F8A020 /* poorBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "poorBkg@2x.png"; path = "Images/poorBkg@2x.png"; sourceTree = SOURCE_ROOT; };
+		C31C025119209DA900F8A020 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
+		C31C025219209DA900F8A020 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		C32C1680191A8367008E5708 /* SkinScope_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkinScope_v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C32C1683191A8367008E5708 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C32C1685191A8367008E5708 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,6 +104,8 @@
 		C32C16D1191A97FD008E5708 /* Proxima-Nova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima-Nova-Bold.otf"; sourceTree = "<group>"; };
 		C32C16D2191A97FD008E5708 /* Proxima-Nova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima-Nova-Regular.otf"; sourceTree = "<group>"; };
 		C32C16D9191AA6FA008E5708 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Images/background.png; sourceTree = SOURCE_ROOT; };
+		C37EB54019213E4D0026577E /* unknownBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unknownBkg.png; path = Images/unknownBkg.png; sourceTree = SOURCE_ROOT; };
+		C37EB54119213E4D0026577E /* unknownBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unknownBkg@2x.png"; path = "Images/unknownBkg@2x.png"; sourceTree = SOURCE_ROOT; };
 		C3AAC430191D44480033B82D /* average.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = average.png; path = Images/average.png; sourceTree = SOURCE_ROOT; };
 		C3AAC432191D44480033B82D /* good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = good.png; path = Images/good.png; sourceTree = SOURCE_ROOT; };
 		C3AAC434191D44480033B82D /* poor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = poor.png; path = Images/poor.png; sourceTree = SOURCE_ROOT; };
@@ -140,6 +162,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C31C023919207EB200F8A020 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				C3EC85CE191C34CF009908F7 /* SSKeychain.h */,
+				C3EC85CF191C34CF009908F7 /* SSKeychain.m */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		C31C023A19207ECB00F8A020 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C3EC85C6191C1A0C009908F7 /* Product.h */,
+				C3EC85C7191C1A0C009908F7 /* Product.m */,
+				C3EC85D2191C3F72009908F7 /* User.h */,
+				C3EC85D3191C3F72009908F7 /* User.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C31C023B19207EE100F8A020 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C32C1698191A8367008E5708 /* SkinScopeViewController.h */,
+				C32C1699191A8367008E5708 /* SkinScopeViewController.m */,
+				C3EC85D5191CA6F7009908F7 /* ProductSearchViewController.h */,
+				C3EC85D6191CA6F7009908F7 /* ProductSearchViewController.m */,
+				C31C023C1920819100F8A020 /* ProductViewController.h */,
+				C31C023D1920819100F8A020 /* ProductViewController.m */,
+				C31C025119209DA900F8A020 /* PageViewController.h */,
+				C31C025219209DA900F8A020 /* PageViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		C32C1677191A8367008E5708 = {
 			isa = PBXGroup;
 			children = (
@@ -178,19 +235,12 @@
 		C32C1689191A8367008E5708 /* SkinScope_v2 */ = {
 			isa = PBXGroup;
 			children = (
-				C3EC85CE191C34CF009908F7 /* SSKeychain.h */,
-				C3EC85CF191C34CF009908F7 /* SSKeychain.m */,
 				C32C1692191A8367008E5708 /* SkinScopeAppDelegate.h */,
 				C32C1693191A8367008E5708 /* SkinScopeAppDelegate.m */,
-				C3EC85C6191C1A0C009908F7 /* Product.h */,
-				C3EC85C7191C1A0C009908F7 /* Product.m */,
-				C3EC85D2191C3F72009908F7 /* User.h */,
-				C3EC85D3191C3F72009908F7 /* User.m */,
 				C32C1695191A8367008E5708 /* Main.storyboard */,
-				C32C1698191A8367008E5708 /* SkinScopeViewController.h */,
-				C32C1699191A8367008E5708 /* SkinScopeViewController.m */,
-				C3EC85D5191CA6F7009908F7 /* ProductSearchViewController.h */,
-				C3EC85D6191CA6F7009908F7 /* ProductSearchViewController.m */,
+				C31C023A19207ECB00F8A020 /* Models */,
+				C31C023B19207EE100F8A020 /* View Controllers */,
+				C31C023919207EB200F8A020 /* Libraries */,
 				C32C169B191A8367008E5708 /* Images.xcassets */,
 				C32C168A191A8367008E5708 /* Supporting Files */,
 			);
@@ -239,6 +289,14 @@
 		C32C16D6191AA686008E5708 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C37EB54019213E4D0026577E /* unknownBkg.png */,
+				C37EB54119213E4D0026577E /* unknownBkg@2x.png */,
+				C31C023F1920863C00F8A020 /* averageBkg.png */,
+				C31C02401920863C00F8A020 /* averageBkg@2x.png */,
+				C31C02411920863C00F8A020 /* goodBkg.png */,
+				C31C02421920863C00F8A020 /* goodBkg@2x.png */,
+				C31C02431920863C00F8A020 /* poorBkg.png */,
+				C31C02441920863C00F8A020 /* poorBkg@2x.png */,
 				C3E07467191F00490063C782 /* allResults.png */,
 				C3E07468191F00490063C782 /* allResults@2x.png */,
 				C3E07463191EFF690063C782 /* clear.png */,
@@ -341,19 +399,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C37EB54219213E4D0026577E /* unknownBkg.png in Resources */,
 				C32C16D3191A97FD008E5708 /* Bree-Bold.otf in Resources */,
 				C3AAC443191D4A290033B82D /* filter@2x.png in Resources */,
 				C3B1B882191DEEA40003B575 /* poor@2x.png in Resources */,
+				C31C02461920863C00F8A020 /* averageBkg@2x.png in Resources */,
 				C3B1B886191DF79B0003B575 /* unknown@2x.png in Resources */,
 				C3AAC438191D44480033B82D /* average.png in Resources */,
+				C31C02451920863C00F8A020 /* averageBkg.png in Resources */,
 				C32C169C191A8367008E5708 /* Images.xcassets in Resources */,
+				C31C02491920863C00F8A020 /* poorBkg.png in Resources */,
 				C32C16D4191A97FD008E5708 /* Proxima-Nova-Bold.otf in Resources */,
 				C32C16DA191AA6FA008E5708 /* background.png in Resources */,
 				C3B1B880191DEEA40003B575 /* average@2x.png in Resources */,
 				C3E07469191F00490063C782 /* allResults.png in Resources */,
 				C3E07465191EFF690063C782 /* clear.png in Resources */,
 				C3AAC43A191D44480033B82D /* good.png in Resources */,
+				C31C024A1920863C00F8A020 /* poorBkg@2x.png in Resources */,
 				C3B1B885191DF79B0003B575 /* unknown.png in Resources */,
+				C37EB54319213E4D0026577E /* unknownBkg@2x.png in Resources */,
 				C32C16D5191A97FD008E5708 /* Proxima-Nova-Regular.otf in Resources */,
 				C3AAC441191D48350033B82D /* filter.png in Resources */,
 				C3AAC43E191D44480033B82D /* scan.png in Resources */,
@@ -363,6 +427,8 @@
 				C32C1697191A8367008E5708 /* Main.storyboard in Resources */,
 				C3AAC43C191D44480033B82D /* poor.png in Resources */,
 				C3B1B881191DEEA40003B575 /* good@2x.png in Resources */,
+				C31C02481920863C00F8A020 /* goodBkg@2x.png in Resources */,
+				C31C02471920863C00F8A020 /* goodBkg.png in Resources */,
 				C3C2E7BB191D5E7D00B2C219 /* background@2x.png in Resources */,
 				C3C2E7B9191D5BDD00B2C219 /* scan@2x.png in Resources */,
 			);
@@ -418,6 +484,8 @@
 			files = (
 				C32C169A191A8367008E5708 /* SkinScopeViewController.m in Sources */,
 				C3EC85C8191C1A0D009908F7 /* Product.m in Sources */,
+				C31C025319209DA900F8A020 /* PageViewController.m in Sources */,
+				C31C023E1920819100F8A020 /* ProductViewController.m in Sources */,
 				C3EC85D7191CA6F7009908F7 /* ProductSearchViewController.m in Sources */,
 				C3EC85D4191C3F72009908F7 /* User.m in Sources */,
 				C32C1694191A8367008E5708 /* SkinScopeAppDelegate.m in Sources */,

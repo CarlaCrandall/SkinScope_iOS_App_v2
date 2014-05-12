@@ -161,7 +161,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" id="cba-cy-8sO">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="Search" id="cba-cy-8sO">
                                 <rect key="frame" x="7" y="74" width="255" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -181,6 +181,7 @@
                         <outlet property="scanBtn" destination="8Qg-qs-Y4e" id="eyI-JO-cpr"/>
                         <outlet property="searchDisplayController" destination="rjl-Gr-b50" id="qtb-Hj-at8"/>
                         <outlet property="searchResults" destination="DNS-UR-BbV" id="VQB-1L-h9w"/>
+                        <segue destination="zjt-qs-Ahv" kind="push" identifier="pushProductVC" id="j3r-j5-ouI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9BZ-tU-4Z6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,10 +194,138 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="666" y="-404"/>
+            <point key="canvasLocation" x="664" y="214"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="zlu-e4-wxA">
+            <objects>
+                <viewController id="zjt-qs-Ahv" customClass="PageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BSe-1Q-QHo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xnh-kd-i4T"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="keX-dm-bnd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1133" y="214"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="qaq-Mf-v9s">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="7Sq-XF-kMw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1xB-S1-xnI"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Llr-sy-2si" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1133" y="948"/>
+        </scene>
+        <!--Product View Controller-->
+        <scene sceneID="p6n-Or-o8t">
+            <objects>
+                <viewController storyboardIdentifier="ProductOverview" id="jkW-VA-80t" customClass="ProductViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4JN-tU-cYP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="ywJ-k8-bwt">
+                                <rect key="frame" x="35" y="127" width="250" height="410"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ks7-pK-rn9">
+                                        <rect key="frame" x="12" y="5" width="225" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VSq-to-SqZ">
+                                        <rect key="frame" x="12" y="50" width="225" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="averageBkg.png" id="snn-y7-JKZ">
+                                        <rect key="frame" x="0.0" y="89" width="105" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qUu-5K-O4I">
+                                        <rect key="frame" x="8" y="91" width="88" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4w7-2N-j5r">
+                                        <rect key="frame" x="8" y="106" width="88" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p08-E1-YEh">
+                                        <rect key="frame" x="12" y="145" width="225" height="29"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Irritants" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A2J-cJ-GtE">
+                                        <rect key="frame" x="12" y="180" width="225" height="29"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Comedogenics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MtJ-L6-VUn">
+                                        <rect key="frame" x="12" y="215" width="225" height="29"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="zyb-nR-hhs">
+                                <rect key="frame" x="35" y="83" width="250" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <items/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GF2-hC-XQU">
+                                <rect key="frame" x="49" y="83" width="162" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25098039220000001" green="0.76862745099999996" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="brandName" destination="VSq-to-SqZ" id="H18-Hz-Us2"/>
+                        <outlet property="numComedogenics" destination="MtJ-L6-VUn" id="dOO-SM-Lg7"/>
+                        <outlet property="numIngredients" destination="p08-E1-YEh" id="b6R-hb-AmF"/>
+                        <outlet property="numIrritants" destination="A2J-cJ-GtE" id="0fX-MY-Yu4"/>
+                        <outlet property="overviewLabel" destination="GF2-hC-XQU" id="YGJ-bt-jAu"/>
+                        <outlet property="productName" destination="ks7-pK-rn9" id="5ti-R3-O1a"/>
+                        <outlet property="rating" destination="qUu-5K-O4I" id="Kzk-cK-Ngi"/>
+                        <outlet property="ratingBkg" destination="snn-y7-JKZ" id="mu1-YL-6a4"/>
+                        <outlet property="ratingLabel" destination="4w7-2N-j5r" id="hfl-iT-9lU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WbJ-Aa-kWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1133" y="1688"/>
         </scene>
     </scenes>
     <resources>
+        <image name="averageBkg.png" width="105" height="40"/>
         <image name="filter.png" width="22" height="22"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
