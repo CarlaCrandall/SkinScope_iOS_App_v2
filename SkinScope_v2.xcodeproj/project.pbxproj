@@ -40,6 +40,10 @@
 		C37EB54B19215DCF0026577E /* compose@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C37EB54919215DCF0026577E /* compose@2x.png */; };
 		C37EB54E19215F230026577E /* ReviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C37EB54D19215F230026577E /* ReviewsViewController.m */; };
 		C37EB55119216F890026577E /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = C37EB55019216F890026577E /* Review.m */; };
+		C37EB55419218E8E0026577E /* CustomReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C37EB55319218E8E0026577E /* CustomReviewCell.m */; };
+		C3A6047D1922B24E0006DB9A /* IngredientsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A6047C1922B24E0006DB9A /* IngredientsListViewController.m */; };
+		C3A604801922B5F60006DB9A /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A6047F1922B5F60006DB9A /* Ingredient.m */; };
+		C3A604831922CD3A0006DB9A /* IngredientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A604821922CD3A0006DB9A /* IngredientViewController.m */; };
 		C3AAC438191D44480033B82D /* average.png in Resources */ = {isa = PBXBuildFile; fileRef = C3AAC430191D44480033B82D /* average.png */; };
 		C3AAC43A191D44480033B82D /* good.png in Resources */ = {isa = PBXBuildFile; fileRef = C3AAC432191D44480033B82D /* good.png */; };
 		C3AAC43C191D44480033B82D /* poor.png in Resources */ = {isa = PBXBuildFile; fileRef = C3AAC434191D44480033B82D /* poor.png */; };
@@ -116,6 +120,14 @@
 		C37EB54D19215F230026577E /* ReviewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewsViewController.m; path = SkinScope_v2/ReviewsViewController.m; sourceTree = SOURCE_ROOT; };
 		C37EB54F19216F890026577E /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
 		C37EB55019216F890026577E /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
+		C37EB55219218E8E0026577E /* CustomReviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomReviewCell.h; sourceTree = "<group>"; };
+		C37EB55319218E8E0026577E /* CustomReviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomReviewCell.m; sourceTree = "<group>"; };
+		C3A6047B1922B24E0006DB9A /* IngredientsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientsListViewController.h; sourceTree = "<group>"; };
+		C3A6047C1922B24E0006DB9A /* IngredientsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientsListViewController.m; sourceTree = "<group>"; };
+		C3A6047E1922B5F60006DB9A /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
+		C3A6047F1922B5F60006DB9A /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
+		C3A604811922CD3A0006DB9A /* IngredientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientViewController.h; sourceTree = "<group>"; };
+		C3A604821922CD3A0006DB9A /* IngredientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientViewController.m; sourceTree = "<group>"; };
 		C3AAC430191D44480033B82D /* average.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = average.png; path = Images/average.png; sourceTree = SOURCE_ROOT; };
 		C3AAC432191D44480033B82D /* good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = good.png; path = Images/good.png; sourceTree = SOURCE_ROOT; };
 		C3AAC434191D44480033B82D /* poor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = poor.png; path = Images/poor.png; sourceTree = SOURCE_ROOT; };
@@ -190,6 +202,8 @@
 				C3EC85D3191C3F72009908F7 /* User.m */,
 				C37EB54F19216F890026577E /* Review.h */,
 				C37EB55019216F890026577E /* Review.m */,
+				C3A6047E1922B5F60006DB9A /* Ingredient.h */,
+				C3A6047F1922B5F60006DB9A /* Ingredient.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -207,6 +221,10 @@
 				C31C023D1920819100F8A020 /* ProductViewController.m */,
 				C37EB54C19215F230026577E /* ReviewsViewController.h */,
 				C37EB54D19215F230026577E /* ReviewsViewController.m */,
+				C3A6047B1922B24E0006DB9A /* IngredientsListViewController.h */,
+				C3A6047C1922B24E0006DB9A /* IngredientsListViewController.m */,
+				C3A604811922CD3A0006DB9A /* IngredientViewController.h */,
+				C3A604821922CD3A0006DB9A /* IngredientViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -252,6 +270,8 @@
 				C32C1692191A8367008E5708 /* SkinScopeAppDelegate.h */,
 				C32C1693191A8367008E5708 /* SkinScopeAppDelegate.m */,
 				C32C1695191A8367008E5708 /* Main.storyboard */,
+				C37EB55219218E8E0026577E /* CustomReviewCell.h */,
+				C37EB55319218E8E0026577E /* CustomReviewCell.m */,
 				C31C023A19207ECB00F8A020 /* Models */,
 				C31C023B19207EE100F8A020 /* View Controllers */,
 				C31C023919207EB200F8A020 /* Libraries */,
@@ -505,11 +525,15 @@
 				C3EC85C8191C1A0D009908F7 /* Product.m in Sources */,
 				C31C025319209DA900F8A020 /* PageViewController.m in Sources */,
 				C31C023E1920819100F8A020 /* ProductViewController.m in Sources */,
+				C3A6047D1922B24E0006DB9A /* IngredientsListViewController.m in Sources */,
 				C3EC85D7191CA6F7009908F7 /* ProductSearchViewController.m in Sources */,
+				C3A604831922CD3A0006DB9A /* IngredientViewController.m in Sources */,
 				C3EC85D4191C3F72009908F7 /* User.m in Sources */,
+				C3A604801922B5F60006DB9A /* Ingredient.m in Sources */,
 				C32C1694191A8367008E5708 /* SkinScopeAppDelegate.m in Sources */,
 				C32C1690191A8367008E5708 /* main.m in Sources */,
 				C37EB54E19215F230026577E /* ReviewsViewController.m in Sources */,
+				C37EB55419218E8E0026577E /* CustomReviewCell.m in Sources */,
 				C3EC85D0191C34CF009908F7 /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

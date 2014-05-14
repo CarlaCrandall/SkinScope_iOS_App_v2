@@ -9,6 +9,7 @@
 #import "PageViewController.h"
 #import "ProductViewController.h"
 #import "ReviewsViewController.h"
+#import "IngredientsListViewController.h"
 
 @interface PageViewController ()
 
@@ -31,6 +32,13 @@
 {
     [super viewDidLoad];
     
+    //set back button text and color for navigation controller
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    //set nav bar title
+    self.title = product.name;
+    
     //set background image
     UIImage *background = [UIImage imageNamed: @"background.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage: background];
@@ -38,7 +46,7 @@
     
     //set page titles and IDs for child view controllers
     pageTitles = @[@"Product Overview", @"Product Reviews", @"Product Ingredients"];
-    pageIDs = @[@"ProductOverview", @"ProductReviews"];
+    pageIDs = @[@"ProductOverview", @"ProductReviews", @"ProductIngredients"];
     
     //create page view controller
     myPageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
@@ -143,13 +151,13 @@
     else if(index == 2){
         
         //create view controller
-        ProductViewController *productViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductOverview"];
+        IngredientsListViewController *ingredientsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductIngredients"];
         
         //pass data
-        productViewController.pageIndex = index;
-        productViewController.product = product;
+        ingredientsViewController.pageIndex = index;
+        ingredientsViewController.product = product;
         
-        return productViewController;
+        return ingredientsViewController;
     }
     
     return nil;

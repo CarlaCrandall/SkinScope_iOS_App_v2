@@ -10,10 +10,11 @@
 #import <RestKit/RestKit.h>
 #import "Product.h"
 #import "Review.h"
+#import "Ingredient.h"
 
 @implementation SkinScopeAppDelegate
 
-@synthesize objectManager, loginMapping, productSearchMapping, productReviewsMapping, loginDescriptor, productSearchDescriptor, productReviewsDescriptor;
+@synthesize objectManager, loginMapping, productSearchMapping, productReviewsMapping, loginDescriptor, productSearchDescriptor, productReviewsDescriptor, productIngredientsMapping, productIngredientsDescriptor;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -89,7 +90,21 @@
                                                                @"review": @"review",
                                                                @"user.id": @"userID",
                                                                @"user.username": @"user",
-                                                               @"user.skin_type": @"skin_type",
+                                                               @"user.skin_type": @"skin_type"
+                                                               }];
+    
+    //object mapping for product ingredients
+    productIngredientsMapping = [RKObjectMapping mappingForClass:[Ingredient class]];
+    [productIngredientsMapping addAttributeMappingsFromDictionary:@{
+                                                               @"id": @"ingredientID",
+                                                               @"name": @"name",
+                                                               @"rating": @"rating",
+                                                               @"function": @"function",
+                                                               @"benefits": @"benefits",
+                                                               @"negatives": @"negatives",
+                                                               @"com": @"com",
+                                                               @"irr": @"irr",
+                                                               @"description": @"description"
                                                                }];
 }
 
@@ -116,10 +131,17 @@
                                                                       pathPattern:@"/api/products/:id/reviews"
                                                                           keyPath:@""
                                                                       statusCodes:[NSIndexSet indexSetWithIndex:200]];
+    
+    //response descriptor for product reviews
+    productIngredientsDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:productIngredientsMapping
+                                                                            method:RKRequestMethodGET
+                                                                       pathPattern:@"/api/products/:id/ingredients"
+                                                                           keyPath:@""
+                                                                       statusCodes:[NSIndexSet indexSetWithIndex:200]];
 }
 
 -(void)addResponseDescriptors{
-    [objectManager addResponseDescriptorsFromArray:@[loginDescriptor, productSearchDescriptor, productReviewsDescriptor]];
+    [objectManager addResponseDescriptorsFromArray:@[loginDescriptor, productSearchDescriptor, productReviewsDescriptor, productIngredientsDescriptor]];
 }
 
 @end

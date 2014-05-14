@@ -18,7 +18,7 @@
 
 @implementation ProductSearchViewController
 
-@synthesize mySearchBar, resultsLabel, scanBtn, searchResults, products, product, filterRating;
+@synthesize mySearchBar, resultsLabel, scanBtn, searchResults, products, product, filterRating, spinner;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -150,16 +150,16 @@
     
     //set table cell image based on product rating
     if([[rowProduct rating] isEqualToString:@"Good"]){
-        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"good.png"]];
+        cell.imageView.image = [UIImage imageNamed:@"good.png"];
     }
     else if([[rowProduct rating] isEqualToString:@"Average"]){
-        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"average.png"]];
+        cell.imageView.image = [UIImage imageNamed:@"average.png"];
     }
     else if([[rowProduct rating] isEqualToString:@"Poor"]){
-        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"poor.png"]];
+        cell.imageView.image = [UIImage imageNamed:@"poor.png"];
     }
     else{
-        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"unknown.png"]];
+        cell.imageView.image = [UIImage imageNamed:@"unknown.png"];
     }
     
     //set product name
@@ -183,8 +183,7 @@
     // get product
     product = [products objectAtIndex:indexPath.row];
     
-    
-    
+    //push next view controller
     [self pushProductVC];
 }
 
@@ -195,6 +194,9 @@
 
 //search for products
 -(void)searchForProducts{
+    
+    //show activity indicator
+    [spinner startAnimating];
     
     //setup query parameters
     NSDictionary *queryParams;
@@ -211,12 +213,16 @@
     //make the call
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/api/products" parameters:queryParams
         success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                  
+            
+            [spinner stopAnimating]; //hide activity indicator
+            
             products = mappingResult.array; //store results
             [searchResults reloadData]; //show the results
                                                   
         }
         failure:^(RKObjectRequestOperation *operation, NSError *error) {
+            
+            [spinner stopAnimating]; //hide activity indicator
                                                   
             products = [NSArray array]; //empty array
             [searchResults reloadData]; //empty the table view
@@ -294,7 +300,7 @@
             UILabel *label = (UILabel *)subview;
             
             //set color
-            [label setTextColor:[UIColor colorWithRed:54.0/255.0 green:54.0/255.0 blue:54.0/255.0 alpha:1]];
+            [label setTextColor:[UIColor colorWithRed:120.0/255.0 green:120.0/255.0 blue:120.0/255.0 alpha:1]];
             
             //set font
             [label setFont:[UIFont fontWithName:@"ProximaNova-Bold" size:14]];
@@ -344,7 +350,7 @@
     }
     
     //search for products
-    if(![mySearchBar.text isEqualToString:@""]){
+    if(![mySearchBar.text isEqualToString:@""] && ![mySearchBar.text isEqualToString:@"Search"]){
         [self searchForProducts];
     }
     

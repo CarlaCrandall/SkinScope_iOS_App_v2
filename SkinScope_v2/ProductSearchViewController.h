@@ -16,6 +16,7 @@
 @property (nonatomic,strong) IBOutlet UILabel *resultsLabel;
 @property (nonatomic,strong) IBOutlet UIBarButtonItem *filterButton;
 @property (nonatomic,strong) IBOutlet UITableView *searchResults;
+@property (nonatomic,strong) IBOutlet UIActivityIndicatorView *spinner;
 
 @property (nonatomic,strong) NSArray *products;
 @property (nonatomic,strong) Product *product;

@@ -10,12 +10,12 @@
 
 @interface Review : NSObject
 
-@property (nonatomic,assign) int productID;
 @property (nonatomic,assign) int userID;
-@property (nonatomic,strong) NSString *review;
 @property (nonatomic,strong) NSString *user;
 @property (nonatomic,strong) NSString *skin_type;
+@property (nonatomic,strong) NSString *review;
 
--(id)initWithproductID:(int)p_id userID:(int)u_id user:(NSString *)r_user skin_type:(NSString *)r_skin_type review:(NSString *)r_review;
+
+-(id)initWithUserID:(int)u_id user:(NSString *)r_user skin_type:(NSString *)r_skin_type review:(NSString *)r_review;
 
 @end
