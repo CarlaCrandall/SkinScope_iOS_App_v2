@@ -451,6 +451,9 @@
                                     <barButtonItem width="166" style="plain" systemItem="fixedSpace" id="ZUD-iv-xbE"/>
                                     <barButtonItem image="compose.png" id="PmS-Fu-5bb">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="pushAddReviewVC" destination="Vkj-hP-UTL" id="cjN-R4-Ede"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem image="filter.png" id="CFp-az-6Gb">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -478,11 +481,96 @@
                         <outlet property="reviewsLabel" destination="hqg-or-Vay" id="ysE-T5-hKZ"/>
                         <outlet property="reviewsList" destination="vWh-zZ-G5v" id="fB4-Mq-s7L"/>
                         <outlet property="spinner" destination="3pU-5K-LgP" id="hT4-z1-erG"/>
+                        <segue destination="hVw-pE-rtf" kind="push" identifier="pushAddReviewVC" id="2JL-F7-gc9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Qx-sC-ppM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1133" y="2390"/>
+        </scene>
+        <!--Add Review View Controller-->
+        <scene sceneID="jaM-aJ-CgB">
+            <objects>
+                <viewController id="hVw-pE-rtf" customClass="AddReviewViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tpE-aR-5xw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="Ted-LK-1oq">
+                                <rect key="frame" x="35" y="83" width="250" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.36862745099999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <items/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write a Review" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NYs-fu-p4U">
+                                <rect key="frame" x="49" y="83" width="183" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="ieN-Qd-2cC">
+                                <rect key="frame" x="35" y="127" width="250" height="410"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="MCX-iL-LXI">
+                                        <rect key="frame" x="20" y="20" width="210" height="329"/>
+                                        <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="hVw-pE-rtf" id="kvM-2b-joV"/>
+                                        </connections>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ScH-EQ-AuU">
+                                        <rect key="frame" x="165" y="361" width="65" height="30"/>
+                                        <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="submitReview" destination="hVw-pE-rtf" eventType="touchUpInside" id="BXV-nJ-By0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JS0-74-d5D">
+                                        <rect key="frame" x="92" y="361" width="65" height="30"/>
+                                        <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Clear">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clearReviewText" destination="hVw-pE-rtf" eventType="touchUpInside" id="Tux-08-aG4"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="O18-Zk-f1j">
+                                        <rect key="frame" x="115" y="175" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="color" red="0.50787618889999997" green="0.50787618889999997" blue="0.50787618889999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25098039220000001" green="0.76862745099999996" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RqC-Dv-ee8"/>
+                    <connections>
+                        <outlet property="clearBtn" destination="JS0-74-d5D" id="Rc2-Kt-7hl"/>
+                        <outlet property="reviewText" destination="MCX-iL-LXI" id="0tk-Mu-M5Q"/>
+                        <outlet property="spinner" destination="O18-Zk-f1j" id="ybd-gQ-Nvu"/>
+                        <outlet property="submitBtn" destination="ScH-EQ-AuU" id="bq6-IW-uAP"/>
+                        <outlet property="writeReviewLabel" destination="NYs-fu-p4U" id="7yQ-Ac-t1C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r3u-2j-YGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1625" y="2390"/>
         </scene>
         <!--Ingredient View Controller-->
         <scene sceneID="avt-iP-TJK">

@@ -21,6 +21,7 @@
 @property (nonatomic,strong) RKObjectMapping *productSearchMapping;
 @property (nonatomic,strong) RKObjectMapping *productReviewsMapping;
 @property (nonatomic,strong) RKObjectMapping *productIngredientsMapping;
+@property (nonatomic,strong) RKObjectMapping *addReviewMapping;
 
 
 //RestKit Response Descriptors
@@ -28,10 +29,11 @@
 @property (nonatomic,strong) RKResponseDescriptor *productSearchDescriptor;
 @property (nonatomic,strong) RKResponseDescriptor *productReviewsDescriptor;
 @property (nonatomic,strong) RKResponseDescriptor *productIngredientsDescriptor;
+@property (nonatomic,strong) RKResponseDescriptor *addReviewDescriptor;
 
 
 -(void)defineObjectMappings;
 -(void)defineResponseDesciptors;
--(void)addResponseDescriptors;
+-(void)addDescriptors;
 
 @end

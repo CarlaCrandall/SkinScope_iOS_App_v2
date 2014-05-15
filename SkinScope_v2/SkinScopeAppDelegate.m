@@ -14,7 +14,7 @@
 
 @implementation SkinScopeAppDelegate
 
-@synthesize objectManager, loginMapping, productSearchMapping, productReviewsMapping, loginDescriptor, productSearchDescriptor, productReviewsDescriptor, productIngredientsMapping, productIngredientsDescriptor;
+@synthesize objectManager, loginMapping, productSearchMapping, productReviewsMapping, loginDescriptor, productSearchDescriptor, productReviewsDescriptor, productIngredientsMapping, productIngredientsDescriptor, addReviewMapping, addReviewDescriptor;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -27,7 +27,7 @@
     
     [self defineObjectMappings];
     [self defineResponseDesciptors];
-    [self addResponseDescriptors];
+    [self addDescriptors];
     
     return YES;
 }
@@ -58,6 +58,7 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 
 #pragma mark RestKit / API Call Functions
@@ -106,7 +107,14 @@
                                                                @"irr": @"irr",
                                                                @"description": @"description"
                                                                }];
+    
+    
+
+    
+    //object mapping for adding a product review response
+    addReviewMapping = [RKObjectMapping mappingForClass:[NSObject class]];
 }
+
 
 //all RestKit / API call response descriptors are defined here
 -(void)defineResponseDesciptors{
@@ -138,10 +146,27 @@
                                                                        pathPattern:@"/api/products/:id/ingredients"
                                                                            keyPath:@""
                                                                        statusCodes:[NSIndexSet indexSetWithIndex:200]];
+
+    //response descriptor for adding a product review
+    addReviewDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:addReviewMapping
+                                                                   method:RKRequestMethodPOST
+                                                              pathPattern:@"/api/products/:i/reviews/create"
+                                                                  keyPath:@""
+                                                              statusCodes:[NSIndexSet indexSetWithIndex:200]];
 }
 
--(void)addResponseDescriptors{
-    [objectManager addResponseDescriptorsFromArray:@[loginDescriptor, productSearchDescriptor, productReviewsDescriptor, productIngredientsDescriptor]];
+
+
+//add response descriptors to object manager
+-(void)addDescriptors{
+    
+    [objectManager addResponseDescriptorsFromArray:@[loginDescriptor,
+                                                     productSearchDescriptor,
+                                                     productReviewsDescriptor,
+                                                     productIngredientsDescriptor,
+                                                     addReviewDescriptor
+                                                     ]];
 }
+
 
 @end

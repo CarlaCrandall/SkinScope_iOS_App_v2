@@ -25,6 +25,7 @@
 @property (nonatomic,strong) NSArray *reviews;
 
 
+-(IBAction)pushAddReviewVC;
 -(IBAction)showFilterModal;
 -(void)getReviews;
 

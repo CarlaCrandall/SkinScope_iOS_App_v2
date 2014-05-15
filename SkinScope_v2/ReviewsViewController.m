@@ -10,6 +10,7 @@
 #import <RestKit/RestKit.h>
 #import "Review.h"
 #import "CustomReviewCell.h"
+#import "AddReviewViewController.h"
 
 @interface ReviewsViewController ()
 
@@ -120,6 +121,7 @@
         
         //resize review label
         reviewCell.review.frame = CGRectMake(reviewCell.review.frame.origin.x, reviewCell.review.frame.origin.y, reviewCell.review.frame.size.width, lines);
+        [reviewCell.review sizeToFit];
     }
 }
 
@@ -356,6 +358,30 @@
     
     //filter reviews
     [self getReviews];
+}
+
+
+
+#pragma mark Segue
+
+
+//push the next view controller
+-(IBAction)pushAddReviewVC{
+    [self performSegueWithIdentifier:@"pushAddReviewVC" sender:self];
+}
+
+
+//pass product to next view controller
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"pushAddReviewVC"]) {
+        
+        // Get destination view
+        AddReviewViewController *addReviewViewController = [segue destinationViewController];
+        
+        // Pass the product to destination view
+        [addReviewViewController setProduct:product];
+    }
 }
 
 @end

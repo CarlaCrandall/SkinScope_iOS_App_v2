@@ -17,5 +17,6 @@
 
 
 -(id)initWithUserID:(int)u_id user:(NSString *)r_user skin_type:(NSString *)r_skin_type review:(NSString *)r_review;
+-(id)initWithReview:(NSString *)r_review;
 
 @end
