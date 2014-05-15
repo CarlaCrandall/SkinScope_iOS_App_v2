@@ -97,14 +97,25 @@
         //set text
         description.text = ingredient.description;
         
+        
         //figure out height of description label
-        CGSize maximumLabelSize = CGSizeMake(170, FLT_MAX);
-        CGSize expectedLabelSize = [description.text sizeWithFont:description.font constrainedToSize:maximumLabelSize lineBreakMode:description.lineBreakMode];
+        NSString *text = description.text;
+        CGFloat lineHeight = description.font.lineHeight;
+        
+        CGFloat lines;
+        
+        //if text is less than one line, height is equal to lineHeight
+        if(text.length / 35.0f < 1){
+            lines = lineHeight;
+        }
+        //if text is more than one line, calculate height
+        else{
+            lines = (text.length / 35.0f) * lineHeight;
+        }
         
         //resize description label
-        CGRect newFrame = description.frame;
-        newFrame.size.height = expectedLabelSize.height;
-        description.frame = newFrame;
+        description.frame = CGRectMake(description.frame.origin.x, description.frame.origin.y, description.frame.size.width, lines);
+        [description sizeToFit];
     }
     
     

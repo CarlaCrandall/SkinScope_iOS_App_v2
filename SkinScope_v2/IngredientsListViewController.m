@@ -186,7 +186,7 @@
 //display action sheet modal with filter options
 -(IBAction)showFilterModal{
     
-    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"   Filter by Rating" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"   Filter by Rating" delegate:(id<UIActionSheetDelegate>)self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
                             @"All Results",
                             @"Good",
                             @"Average",
@@ -261,7 +261,7 @@
 
 
 //filter results
-- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     //set filter
     switch (buttonIndex) {

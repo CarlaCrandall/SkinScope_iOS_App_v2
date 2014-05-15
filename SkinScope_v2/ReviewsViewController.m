@@ -120,7 +120,7 @@
         }
         
         //resize review label
-        reviewCell.review.frame = CGRectMake(reviewCell.review.frame.origin.x, reviewCell.review.frame.origin.y, reviewCell.review.frame.size.width, lines);
+        reviewCell.review.frame = CGRectMake(reviewCell.review.frame.origin.x, reviewCell.review.frame.origin.y, 223, lines);
         [reviewCell.review sizeToFit];
     }
 }
@@ -262,7 +262,7 @@
 //display action sheet modal with filter options
 -(IBAction)showFilterModal{
     
-    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"   Filter by Skin Type" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"   Filter by Skin Type" delegate:(id<UIActionSheetDelegate>)self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
                             @"All Results",
                             @"Normal",
                             @"Oily",

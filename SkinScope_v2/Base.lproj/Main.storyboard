@@ -97,13 +97,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Qg-qs-Y4e">
-                                <rect key="frame" x="262" y="83" width="42" height="27"/>
+                                <rect key="frame" x="226" y="82" width="42" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2JW-70-m6t">
+                                <rect key="frame" x="276" y="82" width="28" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pushAddProductVC" destination="ojS-Lx-aKI" eventType="touchUpInside" id="fon-ES-dg0"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DNS-UR-BbV">
                                 <rect key="frame" x="35" y="187" width="250" height="350"/>
@@ -162,7 +174,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" text="Search" id="cba-cy-8sO">
-                                <rect key="frame" x="7" y="74" width="255" height="44"/>
+                                <rect key="frame" x="7" y="74" width="219" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -179,6 +191,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="SkinScope" id="Oqe-NF-7Ie"/>
                     <connections>
+                        <outlet property="addBtn" destination="2JW-70-m6t" id="ueA-CC-IOm"/>
                         <outlet property="filterButton" destination="Tc0-mo-CxK" id="O2O-qo-udO"/>
                         <outlet property="mySearchBar" destination="cba-cy-8sO" id="YT4-64-h5R"/>
                         <outlet property="resultsLabel" destination="XQJ-Uq-gC7" id="Y8F-Tq-17d"/>
@@ -187,6 +200,7 @@
                         <outlet property="searchResults" destination="DNS-UR-BbV" id="VQB-1L-h9w"/>
                         <outlet property="spinner" destination="EMm-DV-nE7" id="Yr6-Yh-mpm"/>
                         <segue destination="zjt-qs-Ahv" kind="push" identifier="pushProductVC" id="j3r-j5-ouI"/>
+                        <segue destination="jS3-3L-Ji4" kind="push" identifier="pushAddProductVC" id="REx-91-TYF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9BZ-tU-4Z6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -199,7 +213,91 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="664" y="214"/>
+            <point key="canvasLocation" x="668" y="810"/>
+        </scene>
+        <!--Add Product View Controller-->
+        <scene sceneID="eRB-ej-Nc6">
+            <objects>
+                <viewController id="jS3-3L-Ji4" customClass="AddProductViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="taR-gY-7GA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="sEb-FH-zbZ">
+                                <rect key="frame" x="15" y="63" width="290" height="505"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" id="Ctk-DY-ms5">
+                                        <rect key="frame" x="20" y="44" width="250" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="jS3-3L-Ji4" id="b6S-2M-PVS"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brand" minimumFontSize="17" id="DXq-2J-SGM">
+                                        <rect key="frame" x="20" y="82" width="250" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="jS3-3L-Ji4" id="UP2-p0-08T"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" minimumFontSize="17" id="Asf-ZX-55Y" customClass="Dropdown">
+                                        <rect key="frame" x="20" y="123" width="250" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="jS3-3L-Ji4" id="zD4-jg-AdE"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UPC (optional)" minimumFontSize="17" id="Imy-Of-Oti">
+                                        <rect key="frame" x="20" y="161" width="250" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="jS3-3L-Ji4" id="kQR-s7-A4x"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingredient" minimumFontSize="17" id="wun-FC-eEA">
+                                        <rect key="frame" x="20" y="199" width="250" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="jS3-3L-Ji4" id="V7a-y5-Ugk"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="jS3-3L-Ji4" id="oKC-dk-Xt8"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25098039220000001" green="0.76862745099999996" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PFs-Ol-9kH"/>
+                    <connections>
+                        <outlet property="brand" destination="DXq-2J-SGM" id="dOC-tn-LE0"/>
+                        <outlet property="categoryDropdown" destination="Asf-ZX-55Y" id="xnN-08-2Wx"/>
+                        <outlet property="name" destination="Ctk-DY-ms5" id="WGK-27-ADg"/>
+                        <outlet property="scrollView" destination="sEb-FH-zbZ" id="107-7K-Npv"/>
+                        <outlet property="upc" destination="Imy-Of-Oti" id="PQa-pF-Hwz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YHS-7O-BO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1213" y="810"/>
         </scene>
         <!--Page View Controller - SkinScope-->
         <scene sceneID="zlu-e4-wxA">
@@ -214,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="keX-dm-bnd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1133" y="214"/>
+            <point key="canvasLocation" x="1213" y="1666"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="qaq-Mf-v9s">
@@ -224,7 +322,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Llr-sy-2si" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1133" y="948"/>
+            <point key="canvasLocation" x="1681" y="1666"/>
         </scene>
         <!--Product View Controller-->
         <scene sceneID="p6n-Or-o8t">
@@ -350,7 +448,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbJ-Aa-kWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1133" y="1670"/>
+            <point key="canvasLocation" x="1681" y="2442"/>
         </scene>
         <!--Reviews View Controller-->
         <scene sceneID="dGF-Yy-u32">
@@ -486,7 +584,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Qx-sC-ppM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1133" y="2390"/>
+            <point key="canvasLocation" x="2149" y="2442"/>
         </scene>
         <!--Add Review View Controller-->
         <scene sceneID="jaM-aJ-CgB">
@@ -570,7 +668,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r3u-2j-YGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1625" y="2390"/>
+            <point key="canvasLocation" x="2149" y="3158"/>
         </scene>
         <!--Ingredient View Controller-->
         <scene sceneID="avt-iP-TJK">
@@ -701,7 +799,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJd-gp-OOv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1625" y="3118"/>
+            <point key="canvasLocation" x="2645" y="3158"/>
         </scene>
         <!--Ingredients List View Controller-->
         <scene sceneID="zyG-fi-bka">
@@ -802,7 +900,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKD-F9-x8Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1133" y="3118"/>
+            <point key="canvasLocation" x="2645" y="2442"/>
         </scene>
     </scenes>
     <resources>

@@ -10,7 +10,7 @@
 #import "Product.h"
 #import "CustomReviewCell.h"
 
-@interface ReviewsViewController : UIViewController
+@interface ReviewsViewController : UIViewController <UIActionSheetDelegate>
 
 @property (nonatomic,strong) IBOutlet UILabel *reviewsLabel;
 @property (nonatomic,strong) IBOutlet UIBarButtonItem *composeButton;

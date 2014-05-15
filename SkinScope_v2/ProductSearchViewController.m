@@ -18,7 +18,7 @@
 
 @implementation ProductSearchViewController
 
-@synthesize mySearchBar, resultsLabel, scanBtn, searchResults, products, product, filterRating, spinner;
+@synthesize mySearchBar, resultsLabel, addBtn, scanBtn, searchResults, products, product, filterRating, spinner;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -64,13 +64,22 @@
     [mySearchBar setImage:imgClear forSearchBarIcon:UISearchBarIconClear state:UIControlStateNormal];
     
     //set scan button image
-    UIImage *btnImage = [UIImage imageNamed:@"scan.png"];
-    [scanBtn setImage:btnImage forState:UIControlStateNormal];
+    UIImage *scanImage = [UIImage imageNamed:@"scan.png"];
+    [scanBtn setImage:scanImage forState:UIControlStateNormal];
     
     //round the corners of scan button
     CALayer *btnLayer = [scanBtn layer];
     [btnLayer setMasksToBounds:YES];
     [btnLayer setCornerRadius:3.0f];
+    
+    //set add button image
+    UIImage *addImage = [UIImage imageNamed:@"add.png"];
+    [addBtn setImage:addImage forState:UIControlStateNormal];
+    
+    //round the corners of add button
+    CALayer *addLayer = [addBtn layer];
+    [addLayer setMasksToBounds:YES];
+    [addLayer setCornerRadius:3.0f];
     
     //change font of title
     [resultsLabel setFont:[UIFont fontWithName:@"ProximaNova-Bold" size:18]];
@@ -87,18 +96,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 
 #pragma mark Search Bar Functions
@@ -238,7 +235,7 @@
 //display action sheet modal with filter options
 -(IBAction)showFilterModal{
     
-    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"  Filter by Rating" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"  Filter by Rating" delegate:(id<UIActionSheetDelegate>)self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
                             @"All Results",
                             @"Good",
                             @"Average",
@@ -364,6 +361,11 @@
 //segue to the product search view controller
 -(void)pushProductVC{
     [self performSegueWithIdentifier:@"pushProductVC" sender:self];
+}
+
+//segue to the product search view controller
+-(IBAction)pushAddProductVC{
+    [self performSegueWithIdentifier:@"pushAddProductVC" sender:self];
 }
 
 

@@ -53,7 +53,7 @@
     [myPageViewController setDataSource:self];
     
     //setup first child view controller
-    ProductViewController *startingViewController = [self viewControllerAtIndex:0];
+    ProductViewController *startingViewController = (ProductViewController *)[self viewControllerAtIndex:0];
     NSArray *viewControllers = @[startingViewController];
     [myPageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     

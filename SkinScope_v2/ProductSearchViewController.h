@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Product.h"
 
-@interface ProductSearchViewController : UIViewController
+@interface ProductSearchViewController : UIViewController <UIActionSheetDelegate>
 
 @property (nonatomic,strong) IBOutlet UISearchBar *mySearchBar;
+@property (nonatomic,strong) IBOutlet UIButton *addBtn;
 @property (nonatomic,strong) IBOutlet UIButton *scanBtn;
 @property (nonatomic,strong) IBOutlet UILabel *resultsLabel;
 @property (nonatomic,strong) IBOutlet UIBarButtonItem *filterButton;
@@ -23,6 +24,7 @@
 @property (nonatomic,strong) NSString *filterRating;
 
 -(IBAction)showFilterModal;
+-(IBAction)pushAddProductVC;
 -(void)searchForProducts;
 
 @end

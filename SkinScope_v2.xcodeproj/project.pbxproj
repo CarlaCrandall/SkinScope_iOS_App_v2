@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		301C39A6457A4889A5522AC2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD57196D17A84803A2E8A8F8 /* libPods.a */; };
 		C312C5351923DB6F009FC1FA /* AddReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C312C5341923DB6F009FC1FA /* AddReviewViewController.m */; };
+		C312C5381924442C009FC1FA /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = C312C5361924442C009FC1FA /* add.png */; };
+		C312C5391924442C009FC1FA /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C312C5371924442C009FC1FA /* add@2x.png */; };
+		C312C53C192446EB009FC1FA /* AddProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C312C53B192446EB009FC1FA /* AddProductViewController.m */; };
+		C312C540192451F3009FC1FA /* DropdownArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C312C53F192451F3009FC1FA /* DropdownArrowView.m */; };
 		C31C023E1920819100F8A020 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C31C023D1920819100F8A020 /* ProductViewController.m */; };
 		C31C02451920863C00F8A020 /* averageBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = C31C023F1920863C00F8A020 /* averageBkg.png */; };
 		C31C02461920863C00F8A020 /* averageBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31C02401920863C00F8A020 /* averageBkg@2x.png */; };
@@ -62,6 +66,8 @@
 		C3B1B886191DF79B0003B575 /* unknown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B1B884191DF79B0003B575 /* unknown@2x.png */; };
 		C3C2E7B9191D5BDD00B2C219 /* scan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C2E7B8191D5BDD00B2C219 /* scan@2x.png */; };
 		C3C2E7BB191D5E7D00B2C219 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C2E7BA191D5E7D00B2C219 /* background@2x.png */; };
+		C3DC062A19251C78005A51E3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3DC062919251C78005A51E3 /* Default-568h@2x.png */; };
+		C3DC062D192524A1005A51E3 /* Dropdown.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DC062C192524A1005A51E3 /* Dropdown.m */; };
 		C3E07465191EFF690063C782 /* clear.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E07463191EFF690063C782 /* clear.png */; };
 		C3E07466191EFF690063C782 /* clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E07464191EFF690063C782 /* clear@2x.png */; };
 		C3E07469191F00490063C782 /* allResults.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E07467191F00490063C782 /* allResults.png */; };
@@ -86,6 +92,12 @@
 /* Begin PBXFileReference section */
 		C312C5331923DB6F009FC1FA /* AddReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReviewViewController.h; sourceTree = "<group>"; };
 		C312C5341923DB6F009FC1FA /* AddReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReviewViewController.m; sourceTree = "<group>"; };
+		C312C5361924442C009FC1FA /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = Images/add.png; sourceTree = SOURCE_ROOT; };
+		C312C5371924442C009FC1FA /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "add@2x.png"; path = "Images/add@2x.png"; sourceTree = SOURCE_ROOT; };
+		C312C53A192446EB009FC1FA /* AddProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductViewController.h; sourceTree = "<group>"; };
+		C312C53B192446EB009FC1FA /* AddProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductViewController.m; sourceTree = "<group>"; };
+		C312C53E192451F3009FC1FA /* DropdownArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownArrowView.h; sourceTree = "<group>"; };
+		C312C53F192451F3009FC1FA /* DropdownArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownArrowView.m; sourceTree = "<group>"; };
 		C31C023C1920819100F8A020 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewController.h; sourceTree = "<group>"; };
 		C31C023D1920819100F8A020 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
 		C31C023F1920863C00F8A020 /* averageBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = averageBkg.png; path = Images/averageBkg.png; sourceTree = SOURCE_ROOT; };
@@ -152,6 +164,9 @@
 		C3B1B884191DF79B0003B575 /* unknown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unknown@2x.png"; path = "Images/unknown@2x.png"; sourceTree = SOURCE_ROOT; };
 		C3C2E7B8191D5BDD00B2C219 /* scan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "scan@2x.png"; path = "Images/scan@2x.png"; sourceTree = SOURCE_ROOT; };
 		C3C2E7BA191D5E7D00B2C219 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "Images/background@2x.png"; sourceTree = SOURCE_ROOT; };
+		C3DC062919251C78005A51E3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		C3DC062B192524A1005A51E3 /* Dropdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dropdown.h; sourceTree = "<group>"; };
+		C3DC062C192524A1005A51E3 /* Dropdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dropdown.m; sourceTree = "<group>"; };
 		C3E07463191EFF690063C782 /* clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clear.png; path = Images/clear.png; sourceTree = SOURCE_ROOT; };
 		C3E07464191EFF690063C782 /* clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clear@2x.png"; path = "Images/clear@2x.png"; sourceTree = SOURCE_ROOT; };
 		C3E07467191F00490063C782 /* allResults.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = allResults.png; path = Images/allResults.png; sourceTree = SOURCE_ROOT; };
@@ -202,6 +217,8 @@
 				C3EC85D6191CA6F7009908F7 /* ProductSearchViewController.m */,
 				C31C023C1920819100F8A020 /* ProductViewController.h */,
 				C31C023D1920819100F8A020 /* ProductViewController.m */,
+				C312C53A192446EB009FC1FA /* AddProductViewController.h */,
+				C312C53B192446EB009FC1FA /* AddProductViewController.m */,
 			);
 			name = Product;
 			sourceTree = "<group>";
@@ -226,6 +243,19 @@
 				C3A604821922CD3A0006DB9A /* IngredientViewController.m */,
 			);
 			name = Ingredient;
+			sourceTree = "<group>";
+		};
+		C312C53D192451D7009FC1FA /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				C37EB55219218E8E0026577E /* CustomReviewCell.h */,
+				C37EB55319218E8E0026577E /* CustomReviewCell.m */,
+				C312C53E192451F3009FC1FA /* DropdownArrowView.h */,
+				C312C53F192451F3009FC1FA /* DropdownArrowView.m */,
+				C3DC062B192524A1005A51E3 /* Dropdown.h */,
+				C3DC062C192524A1005A51E3 /* Dropdown.m */,
+			);
+			name = "Custom Views";
 			sourceTree = "<group>";
 		};
 		C31C023919207EB200F8A020 /* Libraries */ = {
@@ -307,8 +337,7 @@
 				C32C1692191A8367008E5708 /* SkinScopeAppDelegate.h */,
 				C32C1693191A8367008E5708 /* SkinScopeAppDelegate.m */,
 				C32C1695191A8367008E5708 /* Main.storyboard */,
-				C37EB55219218E8E0026577E /* CustomReviewCell.h */,
-				C37EB55319218E8E0026577E /* CustomReviewCell.m */,
+				C312C53D192451D7009FC1FA /* Custom Views */,
 				C31C023A19207ECB00F8A020 /* Models */,
 				C31C023B19207EE100F8A020 /* View Controllers */,
 				C31C023919207EB200F8A020 /* Libraries */,
@@ -360,6 +389,9 @@
 		C32C16D6191AA686008E5708 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C3DC062919251C78005A51E3 /* Default-568h@2x.png */,
+				C312C5361924442C009FC1FA /* add.png */,
+				C312C5371924442C009FC1FA /* add@2x.png */,
 				C3A604881923047C0006DB9A /* LaunchImage.png */,
 				C3A604891923047C0006DB9A /* LaunchImage@2x.png */,
 				C3A60484192302EB0006DB9A /* Icon-60.png */,
@@ -488,9 +520,11 @@
 				C3AAC438191D44480033B82D /* average.png in Resources */,
 				C31C02451920863C00F8A020 /* averageBkg.png in Resources */,
 				C32C169C191A8367008E5708 /* Images.xcassets in Resources */,
+				C312C5381924442C009FC1FA /* add.png in Resources */,
 				C31C02491920863C00F8A020 /* poorBkg.png in Resources */,
 				C32C16D4191A97FD008E5708 /* Proxima-Nova-Bold.otf in Resources */,
 				C32C16DA191AA6FA008E5708 /* background.png in Resources */,
+				C312C5391924442C009FC1FA /* add@2x.png in Resources */,
 				C3B1B880191DEEA40003B575 /* average@2x.png in Resources */,
 				C3A6048A1923047C0006DB9A /* LaunchImage.png in Resources */,
 				C3E07469191F00490063C782 /* allResults.png in Resources */,
@@ -499,6 +533,7 @@
 				C31C024A1920863C00F8A020 /* poorBkg@2x.png in Resources */,
 				C3B1B885191DF79B0003B575 /* unknown.png in Resources */,
 				C37EB54319213E4D0026577E /* unknownBkg@2x.png in Resources */,
+				C3DC062A19251C78005A51E3 /* Default-568h@2x.png in Resources */,
 				C32C16D5191A97FD008E5708 /* Proxima-Nova-Regular.otf in Resources */,
 				C3AAC441191D48350033B82D /* filter.png in Resources */,
 				C3A60487192302EB0006DB9A /* Icon-60@2x.png in Resources */,
@@ -572,9 +607,12 @@
 				C31C023E1920819100F8A020 /* ProductViewController.m in Sources */,
 				C3A6047D1922B24E0006DB9A /* IngredientsListViewController.m in Sources */,
 				C3EC85D7191CA6F7009908F7 /* ProductSearchViewController.m in Sources */,
+				C3DC062D192524A1005A51E3 /* Dropdown.m in Sources */,
+				C312C540192451F3009FC1FA /* DropdownArrowView.m in Sources */,
 				C3A604831922CD3A0006DB9A /* IngredientViewController.m in Sources */,
 				C3EC85D4191C3F72009908F7 /* User.m in Sources */,
 				C3A604801922B5F60006DB9A /* Ingredient.m in Sources */,
+				C312C53C192446EB009FC1FA /* AddProductViewController.m in Sources */,
 				C32C1694191A8367008E5708 /* SkinScopeAppDelegate.m in Sources */,
 				C32C1690191A8367008E5708 /* main.m in Sources */,
 				C37EB54E19215F230026577E /* ReviewsViewController.m in Sources */,
