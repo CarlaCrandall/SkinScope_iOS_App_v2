@@ -14,7 +14,7 @@
 
 @implementation AddProductViewController
 
-@synthesize name, brand, categoryDropdown, upc, categoryOptions, currentField, scrollView;
+@synthesize name, brand, categoryDropdown, upc, categoryOptions, currentField, scrollView, activeField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -97,6 +97,8 @@
     [prevButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"ProximaNova-Bold" size:16], NSFontAttributeName,nil] forState:UIControlStateNormal];
     
     
+    //set content size for scroll view
+    [scrollView setContentSize:CGSizeMake(250, 150)];
 }
 
 
@@ -107,7 +109,7 @@
 
 
 
-#pragma mark Text Field / Keybord Related Functions
+#pragma mark Text Field Functions
 
 
 //handles navigating between text fields and dismissing the keyboard
@@ -131,7 +133,7 @@
     //keep track of current text field
     currentField = textField.tag;
     
-
+    activeField = textField;
 }
 
 
@@ -140,7 +142,7 @@
     //dismiss the keyboard
     [textField resignFirstResponder];
     
-
+    activeField = nil;
 }
 
 
@@ -187,6 +189,67 @@
     }
 }
 
+
+
+#pragma mark Keyboard Functions
+
+
+//register for keyboard notifications
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:Nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasHidden:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+
+//scroll form up when keyboard is shown
+-(void)keyboardWasShown:(NSNotification *)notification{
+    
+    //get keyboard size
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    //setup animation
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDuration:0.25];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    
+    //adjust the bottom content inset of scroll view
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height + 5, 0.0);
+    scrollView.contentInset = contentInsets;
+    scrollView.scrollIndicatorInsets = contentInsets;
+   
+    //animate
+    [UIView commitAnimations];
+}
+
+
+//move form back down when keyboard is hidden
+-(void)keyboardWasHidden:(NSNotification*)notification{
+    
+    //setup animation
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDuration:0.25];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    
+    //adjust scroll view inset
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    scrollView.contentInset = contentInsets;
+    scrollView.scrollIndicatorInsets = contentInsets;
+    
+    //animate
+    [UIView commitAnimations];
+}
 
 
 

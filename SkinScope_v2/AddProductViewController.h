@@ -24,4 +24,7 @@
 -(IBAction)nextClicked:(id)sender;
 -(IBAction)prevClicked:(id)sender;
 
+@property (nonatomic,strong) UITextField *activeField;
+
+
 @end
