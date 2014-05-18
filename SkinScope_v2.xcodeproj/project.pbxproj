@@ -46,6 +46,7 @@
 		C37EB54E19215F230026577E /* ReviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C37EB54D19215F230026577E /* ReviewsViewController.m */; };
 		C37EB55119216F890026577E /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = C37EB55019216F890026577E /* Review.m */; };
 		C37EB55419218E8E0026577E /* CustomReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C37EB55319218E8E0026577E /* CustomReviewCell.m */; };
+		C3952A8D19284A5A00DFC0F1 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3952A8C19284A5A00DFC0F1 /* CreateAccountViewController.m */; };
 		C3A6047D1922B24E0006DB9A /* IngredientsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A6047C1922B24E0006DB9A /* IngredientsListViewController.m */; };
 		C3A604801922B5F60006DB9A /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A6047F1922B5F60006DB9A /* Ingredient.m */; };
 		C3A604831922CD3A0006DB9A /* IngredientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A604821922CD3A0006DB9A /* IngredientViewController.m */; };
@@ -141,6 +142,8 @@
 		C37EB55019216F890026577E /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
 		C37EB55219218E8E0026577E /* CustomReviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomReviewCell.h; sourceTree = "<group>"; };
 		C37EB55319218E8E0026577E /* CustomReviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomReviewCell.m; sourceTree = "<group>"; };
+		C3952A8B19284A5A00DFC0F1 /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountViewController.h; sourceTree = "<group>"; };
+		C3952A8C19284A5A00DFC0F1 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
 		C3A6047B1922B24E0006DB9A /* IngredientsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientsListViewController.h; sourceTree = "<group>"; };
 		C3A6047C1922B24E0006DB9A /* IngredientsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientsListViewController.m; sourceTree = "<group>"; };
 		C3A6047E1922B5F60006DB9A /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
@@ -285,10 +288,9 @@
 		C31C023B19207EE100F8A020 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C32C1698191A8367008E5708 /* SkinScopeViewController.h */,
-				C32C1699191A8367008E5708 /* SkinScopeViewController.m */,
 				C31C025119209DA900F8A020 /* PageViewController.h */,
 				C31C025219209DA900F8A020 /* PageViewController.m */,
+				C3952A8E19284A6300DFC0F1 /* User Account */,
 				C312C5301923DB01009FC1FA /* Product */,
 				C312C5311923DB09009FC1FA /* Review */,
 				C312C5321923DB11009FC1FA /* Ingredient */,
@@ -427,6 +429,17 @@
 			);
 			name = Images;
 			path = Fonts/Images;
+			sourceTree = "<group>";
+		};
+		C3952A8E19284A6300DFC0F1 /* User Account */ = {
+			isa = PBXGroup;
+			children = (
+				C32C1698191A8367008E5708 /* SkinScopeViewController.h */,
+				C32C1699191A8367008E5708 /* SkinScopeViewController.m */,
+				C3952A8B19284A5A00DFC0F1 /* CreateAccountViewController.h */,
+				C3952A8C19284A5A00DFC0F1 /* CreateAccountViewController.m */,
+			);
+			name = "User Account";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -612,6 +625,7 @@
 				C3A604831922CD3A0006DB9A /* IngredientViewController.m in Sources */,
 				C3EC85D4191C3F72009908F7 /* User.m in Sources */,
 				C3A604801922B5F60006DB9A /* Ingredient.m in Sources */,
+				C3952A8D19284A5A00DFC0F1 /* CreateAccountViewController.m in Sources */,
 				C312C53C192446EB009FC1FA /* AddProductViewController.m in Sources */,
 				C32C1694191A8367008E5708 /* SkinScopeAppDelegate.m in Sources */,
 				C32C1690191A8367008E5708 /* main.m in Sources */,

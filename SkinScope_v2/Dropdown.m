@@ -48,13 +48,6 @@
 }
 
 
-//prevent user from typing in the category dropdown field
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    
-    return NO;
-}
-
-
 -(void)setTag:(NSInteger)tag{
     [super setTag:tag];
     _pickerView.tag = tag;

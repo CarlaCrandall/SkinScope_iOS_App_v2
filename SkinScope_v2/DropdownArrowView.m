@@ -15,7 +15,7 @@
 //create dropdown arrow
 +(DropdownArrowView*) default{
     
-    DropdownArrowView* view = [[DropdownArrowView alloc] initWithFrame:CGRectMake(0, 0, 34, 28)];
+    DropdownArrowView* view = [[DropdownArrowView alloc] initWithFrame:CGRectMake(0, 0, 43, 28)];
     view.backgroundColor = [UIColor clearColor];
     
     return view;

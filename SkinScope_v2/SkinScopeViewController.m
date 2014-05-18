@@ -18,7 +18,7 @@
 
 @implementation SkinScopeViewController
 
-@synthesize titleLabel, email, password, login, spinner;
+@synthesize titleLabel, email, password, login, spinner, createAccount;
 
 - (void)viewDidLoad
 {
@@ -41,6 +41,10 @@
         [UIColor whiteColor], NSForegroundColorAttributeName,
         [UIFont fontWithName:@"Bree-Bold" size:20.0], NSFontAttributeName, nil]];
     
+    //set back button text and color for navigation controller
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
     //change font of title
     [titleLabel setFont:[UIFont fontWithName:@"Bree-Bold" size:50]];
     
@@ -59,8 +63,9 @@
     email.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
     password.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
     
-    //change font of button
+    //change font of buttons
     login.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:24];
+    createAccount.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:14];
 }
 
 - (void)didReceiveMemoryWarning
@@ -208,6 +213,12 @@
 //segue to the product search view controller
 -(void)pushSearchVC{
     [self performSegueWithIdentifier:@"pushSearchVC" sender:self];
+}
+
+
+//segue to the create account view controller
+-(IBAction)pushCreateAccountVC:(id)sender{
+    [self performSegueWithIdentifier:@"pushCreateAccountVC" sender:self];
 }
 
 

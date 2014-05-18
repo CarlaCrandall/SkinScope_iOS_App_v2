@@ -14,7 +14,7 @@
 
 @implementation SkinScopeAppDelegate
 
-@synthesize objectManager, loginMapping, productSearchMapping, productReviewsMapping, loginDescriptor, productSearchDescriptor, productReviewsDescriptor, productIngredientsMapping, productIngredientsDescriptor, addReviewMapping, addReviewDescriptor;
+@synthesize objectManager, emptyMapping, productSearchMapping, productReviewsMapping, loginDescriptor, productSearchDescriptor, productReviewsDescriptor, productIngredientsMapping, productIngredientsDescriptor, addReviewDescriptor, addProductDescriptor, createAccountDescriptor;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -68,7 +68,7 @@
 -(void)defineObjectMappings{
     
     //object mapping for login attempt
-    loginMapping = [RKObjectMapping mappingForClass:[NSObject class]];
+    emptyMapping = [RKObjectMapping mappingForClass:[NSObject class]];
     
     //object mapping for product search
     productSearchMapping = [RKObjectMapping mappingForClass:[Product class]];
@@ -107,12 +107,6 @@
                                                                @"irr": @"irr",
                                                                @"description": @"description"
                                                                }];
-    
-    
-
-    
-    //object mapping for adding a product review response
-    addReviewMapping = [RKObjectMapping mappingForClass:[NSObject class]];
 }
 
 
@@ -120,7 +114,7 @@
 -(void)defineResponseDesciptors{
     
     //response descriptor for login attempt
-    loginDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:loginMapping
+    loginDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:emptyMapping
                                                                    method:RKRequestMethodGET
                                                               pathPattern:@"/api/users/auth"
                                                                   keyPath:@""
@@ -148,11 +142,25 @@
                                                                        statusCodes:[NSIndexSet indexSetWithIndex:200]];
 
     //response descriptor for adding a product review
-    addReviewDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:addReviewMapping
+    addReviewDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:emptyMapping
                                                                    method:RKRequestMethodPOST
                                                               pathPattern:@"/api/products/:i/reviews/create"
                                                                   keyPath:@""
                                                               statusCodes:[NSIndexSet indexSetWithIndex:200]];
+    
+    //response descriptor for adding a product
+    addProductDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:emptyMapping
+                                                                       method:RKRequestMethodPOST
+                                                                  pathPattern:@"/api/products/create"
+                                                                      keyPath:@""
+                                                                  statusCodes:[NSIndexSet indexSetWithIndex:200]];
+    
+    //response descriptor for creating an account
+    createAccountDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:emptyMapping
+                                                                           method:RKRequestMethodPOST
+                                                                      pathPattern:@"/api/users/create"
+                                                                          keyPath:@""
+                                                                      statusCodes:[NSIndexSet indexSetWithIndex:200]];
 }
 
 
@@ -164,7 +172,9 @@
                                                      productSearchDescriptor,
                                                      productReviewsDescriptor,
                                                      productIngredientsDescriptor,
-                                                     addReviewDescriptor
+                                                     addReviewDescriptor,
+                                                     addProductDescriptor,
+                                                     createAccountDescriptor
                                                      ]];
 }
 

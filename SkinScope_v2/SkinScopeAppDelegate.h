@@ -17,11 +17,10 @@
 @property (nonatomic,strong) RKObjectManager *objectManager;
 
 //RestKit Object Mappings
-@property (nonatomic,strong) RKObjectMapping *loginMapping;
+@property (nonatomic,strong) RKObjectMapping *emptyMapping;
 @property (nonatomic,strong) RKObjectMapping *productSearchMapping;
 @property (nonatomic,strong) RKObjectMapping *productReviewsMapping;
 @property (nonatomic,strong) RKObjectMapping *productIngredientsMapping;
-@property (nonatomic,strong) RKObjectMapping *addReviewMapping;
 
 
 //RestKit Response Descriptors
@@ -30,6 +29,8 @@
 @property (nonatomic,strong) RKResponseDescriptor *productReviewsDescriptor;
 @property (nonatomic,strong) RKResponseDescriptor *productIngredientsDescriptor;
 @property (nonatomic,strong) RKResponseDescriptor *addReviewDescriptor;
+@property (nonatomic,strong) RKResponseDescriptor *addProductDescriptor;
+@property (nonatomic,strong) RKResponseDescriptor *createAccountDescriptor;
 
 
 -(void)defineObjectMappings;

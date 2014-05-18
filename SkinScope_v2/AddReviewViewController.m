@@ -9,8 +9,8 @@
 #import "AddReviewViewController.h"
 #import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "User.h"
 #import "Review.h"
-#import "SSKeychain.h"
 
 @interface AddReviewViewController ()
 
@@ -107,26 +107,10 @@
     NSString *addReviewURL = [NSString stringWithFormat:@"/api/products/%i/reviews/create", product.productID];
     
 
-    NSArray *accounts = [SSKeychain accountsForService:@"SkinScope.com"]; //get accounts
-    NSString *username;
-    NSString *password;
-    
-    
-    //get account info
-    if([accounts count] == 1){
-        
-        //get username & password from keychain
-        username = [[accounts objectAtIndex:0] objectForKey:@"acct"];
-        password = [SSKeychain passwordForService:@"SkinScope.com" account:username];
-        
-    }
-    //if account info is not available, display error
-    //shouldn't ever happen - user shouldn't be able to get to this screen without logging in
-    else{
-        
-        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You are not currently logged in." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-        [errorAlert show];
-    }
+    //get user credentials
+    User *sharedUser = [User sharedUser];
+    NSString *username = [sharedUser getUsername];
+    NSString *password = [sharedUser getPassword];
     
     
     //setup header for authentication
@@ -155,13 +139,38 @@
             //stop activity indicator
             [spinner stopAnimating];
             
+            
+            //get errors as JSON
+            NSString *errors = [[error userInfo] objectForKey:NSLocalizedRecoverySuggestionErrorKey];
+            
+            //convert JSON to dictionary
+            NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData: [errors dataUsingEncoding:NSUTF8StringEncoding]
+                                                                 options: NSJSONReadingMutableContainers
+                                                                   error: nil];
+            
+            //create error message
+            NSMutableString *errorMsg = [NSMutableString string];
+            
+            //handles message for server errors
+            if([JSON objectForKey:@"error"] != nil){
+                [errorMsg appendFormat:@"%@", [JSON objectForKey:@"error"]];
+            }
+            //handles message for validation errors
+            else{
+                
+                //loop through dictionary to build error message
+                [errorMsg appendString:@"Your review was not submitted for the following reasons: "];
+                for (NSString* key in [JSON allKeys]){
+                    [errorMsg appendFormat:@"%@ ", [[JSON objectForKey:key] objectAtIndex:0]];
+                }
+            }
+
+            
             //display error message
-            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was a problem submitting your review. Please try again." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMsg delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
             [errorAlert show];
         }
      ];
-    
-    
     
 }
 
