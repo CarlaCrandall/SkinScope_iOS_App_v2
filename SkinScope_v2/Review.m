@@ -26,15 +26,4 @@
     return self;
 }
 
--(id)initWithReview:(NSString *)r_review{
-    self = [super init];
-    
-    // set properties
-    if(self){
-        review = r_review;
-    }
-    
-    return self;
-}
-
 @end

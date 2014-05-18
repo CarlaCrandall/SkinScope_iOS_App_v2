@@ -18,7 +18,7 @@
 
 @implementation ProductSearchViewController
 
-@synthesize mySearchBar, resultsLabel, addBtn, scanBtn, searchResults, products, product, filterRating, spinner;
+@synthesize mySearchBar, resultsLabel, addBtn, scanBtn, searchResults, products, product, filterRating, spinner, productUPC;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -189,7 +189,7 @@
 #pragma mark Search Result Functions
 
 
-//search for products
+//search for products by text
 -(void)searchForProducts{
     
     //show activity indicator
@@ -219,6 +219,40 @@
         }
         failure:^(RKObjectRequestOperation *operation, NSError *error) {
             
+            [spinner stopAnimating]; //hide activity indicator
+                                                  
+            products = [NSArray array]; //empty array
+            [searchResults reloadData]; //empty the table view
+                                                  
+            //no products found, show error message
+            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No products were found." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [errorAlert show];
+        }
+     ];
+}
+
+
+//search for products by UPC / Barcode
+-(void)searchByUPC{
+    
+    //show activity indicator
+    [spinner startAnimating];
+    
+    //setup query parameters
+    NSDictionary *queryParams = @{@"upc": productUPC};
+    
+    //make the call
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/api/products" parameters:queryParams
+        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  
+            [spinner stopAnimating]; //hide activity indicator
+                                                  
+            products = mappingResult.array; //store results
+            [searchResults reloadData]; //show the results
+                                                  
+        }
+        failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  
             [spinner stopAnimating]; //hide activity indicator
                                                   
             products = [NSArray array]; //empty array
@@ -381,6 +415,49 @@
         [productViewController setProduct:product];
     }
 }
+
+
+
+#pragma mark - Add Scanner
+
+//create scan modal view
+//uses ZBar iPhone SDK: http://zbar.sourceforge.net/iphone/sdkdoc/index.html
+-(IBAction)showScanner{
+    //create ZBar reader
+    ZBarReaderViewController *reader = [ZBarReaderViewController new];
+    reader.readerDelegate = self;
+    
+    // EXAMPLE: Set UPC-A
+    [reader.scanner setSymbology:ZBAR_UPCA config:ZBAR_CFG_ENABLE to:1];
+    reader.readerView.zoom = 1.0;
+    
+    //display barcode scanner in modal view controller
+    [self presentViewController:reader animated:YES completion:nil];
+}
+
+
+//get UPC from image
+- (void)imagePickerController:(UIImagePickerController *)reader didFinishPickingMediaWithInfo:(NSDictionary *) info{
+    
+    id<NSFastEnumeration> results = [info objectForKey:ZBarReaderControllerResults];
+    ZBarSymbol *symbol = nil;
+    
+    for(symbol in results)
+        break;
+    
+    if(symbol){
+        
+        //set search term to UPC code
+        productUPC = symbol.data;
+        
+        //search using UPC
+        [self searchByUPC];
+        
+        //dismiss the modal view controller
+        [reader dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
 
 
 @end

@@ -240,6 +240,9 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="showScanner" destination="ojS-Lx-aKI" eventType="touchUpInside" id="g13-lq-lj6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2JW-70-m6t">
                                 <rect key="frame" x="276" y="82" width="28" height="27"/>

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Product.h"
+#import "ZBarSDK.h"
 
-@interface ProductSearchViewController : UIViewController <UIActionSheetDelegate>
+@interface ProductSearchViewController : UIViewController <UIActionSheetDelegate, ZBarReaderDelegate>
 
 @property (nonatomic,strong) IBOutlet UISearchBar *mySearchBar;
 @property (nonatomic,strong) IBOutlet UIButton *addBtn;
@@ -22,9 +23,12 @@
 @property (nonatomic,strong) NSArray *products;
 @property (nonatomic,strong) Product *product;
 @property (nonatomic,strong) NSString *filterRating;
+@property (nonatomic,strong) NSString *productUPC;
 
 -(IBAction)showFilterModal;
 -(IBAction)pushAddProductVC;
+-(IBAction)showScanner;
 -(void)searchForProducts;
+-(void)searchByUPC;
 
 @end
